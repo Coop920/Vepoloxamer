@@ -1,10 +1,10 @@
 ---
 const links = [
-  { href: '/science/', label: 'The Science' },
-  { href: '/preclinical/', label: 'Preclinical Evidence' },
-  { href: '/clinical-history/', label: 'Clinical History' },
-  { href: '/ip-protection/', label: 'IP & Patent Protection' },
-  { href: '/development/', label: 'Development Path' }
+  { href: `${import.meta.env.BASE_URL}science/`, label: 'The Science' },
+  { href: `${import.meta.env.BASE_URL}preclinical/`, label: 'Preclinical Evidence' },
+  { href: `${import.meta.env.BASE_URL}clinical-history/`, label: 'Clinical History' },
+  { href: `${import.meta.env.BASE_URL}ip-protection/`, label: 'IP & Patent Protection' },
+  { href: `${import.meta.env.BASE_URL}development/`, label: 'Development Path' }
 ];
 ---
 <header class="page-header">
