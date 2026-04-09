@@ -1,5 +1,20 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const links = [
+  { href: 'science/', label: 'The Science' },
+  { href: 'development/', label: 'Development Path' },
+  { href: 'preclinical/', label: 'Preclinical Evidence' },
+  { href: 'about-liferaft/', label: 'About LifeRaft Biosciences' },
+  { href: 'clinical-history/', label: 'Clinical History' },
+  { href: 'partner/', label: 'Partnership Opportunities' },
+  { href: 'ip-protection/', label: 'IP & Patent Protection' },
+];
+---
+
 <footer class="footer-main">
   <div class="container footer-main-inner">
+    
     <div>
       <div class="footer-col-title">Asset Site</div>
       <div class="footer-brand">Vepoloxamer</div>
@@ -8,20 +23,17 @@
     <div>
       <div class="footer-col-title">Explore</div>
       <nav class="footer-links two-col" aria-label="Footer">
-        <a href="/science/">The Science</a>
-        <a href="/development/">Development Path</a>
-        <a href="/preclinical/">Preclinical Evidence</a>
-        <a href="/about-liferaft/">About LifeRaft Biosciences</a>
-        <a href="/clinical-history/">Clinical History</a>
-        <a href="/partner/">Partnership Opportunities</a>
-        <a href="/ip-protection/">IP & Patent Protection</a>
+        {links.map((link) => (
+          <a href={`${base}${link.href}`}>{link.label}</a>
+        ))}
       </nav>
     </div>
 
     <div class="footer-actions">
       <div class="footer-col-title">Connect</div>
-      <a class="button primary" href="/partner/">Schedule a Discussion</a>
-      <a class="button secondary" href="/partner/#contact">Email Us</a>
+      <a class="button primary" href={`${base}partner/`}>Schedule a Discussion</a>
+      <a class="button secondary" href={`${base}partner/#contact`}>Email Us</a>
     </div>
+
   </div>
 </footer>
