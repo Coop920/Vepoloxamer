@@ -1,0 +1,19 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  body: string[];
+  bullets?: string[];
+}
+const { eyebrow, title, body = [], bullets = [] } = Astro.props;
+---
+<div class="asset-highlight">
+  {eyebrow && <div class="eyebrow">{eyebrow}</div>}
+  <h3 class="card-title">{title}</h3>
+  {body.map((paragraph) => <p>{paragraph}</p>)}
+  {bullets.length > 0 && (
+    <ul>
+      {bullets.map((bullet) => <li>{bullet}</li>)}
+    </ul>
+  )}
+</div>

@@ -1,0 +1,57 @@
+---
+interface FieldOption {
+  value: string;
+  label: string;
+}
+interface Field {
+  name: string;
+  label: string;
+  type?: 'text' | 'email' | 'textarea' | 'select';
+  required?: boolean;
+  options?: FieldOption[];
+}
+interface Props {
+  title: string;
+  intro?: string;
+  formName: string;
+  fields: Field[];
+}
+const { title, intro, formName, fields } = Astro.props;
+---
+<div class="form-shell">
+  <h3 class="card-title">{title}</h3>
+  {intro && <p>{intro}</p>}
+  <form
+    class="form-grid"
+    name={formName}
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/thanks/"
+  >
+    <input type="hidden" name="form-name" value={formName} />
+    <p hidden>
+      <label>
+        Do not fill this out:
+        <input name="bot-field" />
+      </label>
+    </p>
+
+    {fields.map((field) => (
+      <div class="field">
+        <label for={field.name}>{field.label}</label>
+        {field.type === 'textarea' ? (
+          <textarea id={field.name} name={field.name} required={field.required}></textarea>
+        ) : field.type === 'select' ? (
+          <select id={field.name} name={field.name} required={field.required}>
+            {field.options?.map((option) => <option value={option.value}>{option.label}</option>)}
+          </select>
+        ) : (
+          <input id={field.name} name={field.name} type={field.type || 'text'} required={field.required} />
+        )}
+      </div>
+    ))}
+
+    <button class="button primary" type="submit">Submit</button>
+  </form>
+</div>

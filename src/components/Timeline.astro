@@ -1,0 +1,26 @@
+---
+interface Item {
+  year: string;
+  title: string;
+  body: string;
+  outcome?: string;
+  outcomeType?: 'good' | 'neutral';
+  highlight?: boolean;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+<div class="timeline">
+  {items.map((item) => (
+    <div class:list={['timeline-item', item.highlight && 'highlight']}>
+      <div class="timeline-year">{item.year}</div>
+      <h4>{item.title}</h4>
+      <p>{item.body}</p>
+      {item.outcome && (
+        <div class:list={['outcome', item.outcomeType === 'good' && 'good']}>{item.outcome}</div>
+      )}
+    </div>
+  ))}
+</div>

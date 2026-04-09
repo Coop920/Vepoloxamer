@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PageHero from '../components/PageHero.astro';
+import FooterStrip from '../components/FooterStrip.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteCtaBand from '../components/SiteCtaBand.astro';
+import ContentSection from '../components/ContentSection.astro';
+import CardGrid from '../components/CardGrid.astro';
+
+const topCards = [
+  {
+    icon: '🎯',
+    title: 'Focus',
+    body: 'LifeRaft’s focus is singular: advance Vepoloxamer toward clinical proof of concept and position the asset for partnership with an organization that has the capital and clinical infrastructure to take it to approval.'
+  },
+  {
+    icon: '🕐',
+    title: 'Sustained Commitment',
+    body: 'LifeRaft has held and actively stewarded this asset for over 12 years, generating new preclinical work, a radioprotection indication thesis, and new patent positioning through MUSC.'
+  },
+  {
+    icon: '📍',
+    title: 'Charleston, SC',
+    body: 'Headquartered in Charleston, South Carolina, with active collaboration through the Medical University of South Carolina that produced new data and a filed method-of-use patent application.'
+  }
+];
+
+const transactionCards = [
+  {
+    icon: '✓',
+    title: 'Asset Familiarity',
+    body: 'LifeRaft knows the history, the documents, the datasets, the strengths, and the limitations of the asset. That reduces diligence friction for a serious counterparty.'
+  },
+  {
+    icon: '✓',
+    title: 'Clean, Structured Transfer',
+    body: 'The company exists to hold and transact the asset cleanly. That is clearer and easier for a buyer than navigating a broad operating-company carveout.'
+  },
+  {
+    icon: '✓',
+    title: 'Active Stewardship',
+    body: 'The asset did not sit idle post-acquisition. LifeRaft added value through new indication development, new preclinical work, and a new IP layer.'
+  },
+  {
+    icon: '✓',
+    title: 'Motivated to Transact',
+    body: 'The company was built around conviction in the asset and its development logic, not around becoming a broad promotional biotech story for its own sake.'
+  }
+];
+---
+<BaseLayout title="Vepoloxamer | About LifeRaft Biosciences">
+  <SiteHeader />
+  <PageHero
+    eyebrow="Section 07 — About LifeRaft Biosciences"
+    title="About LifeRaft Biosciences"
+    intro="LifeRaft Biosciences is a biopharmaceutical investment company headquartered in Charleston, South Carolina. It was created as the vehicle to acquire and continue developing Vepoloxamer after Savara wound the program down. Vepoloxamer remains the company’s focus."
+  />
+
+  <ContentSection
+    eyebrow="About LifeRaft Biosciences"
+    subtitle="A Focused Steward of the Asset"
+    intro="The molecule remains the protagonist. LifeRaft’s role is to hold, advance, and credibly present the opportunity without overstating organizational breadth."
+  >
+    <CardGrid columns={3} items={topCards} />
+  </ContentSection>
+
+  <ContentSection dark title="Why LifeRaft Acquired Vepoloxamer">
+    <div class="page-stack">
+      <p>The founding investor followed the scientific and clinical development of poloxamer 188 through its prior sponsors and believed the asset still held meaningful value after Savara chose not to continue the program.</p>
+      <p>LifeRaft was then created specifically to acquire Vepoloxamer and continue moving it forward. That matters because it frames the company as a disciplined asset-holding and development vehicle rather than a shell or distressed parking place.</p>
+      <p>The post-acquisition MUSC collaboration, new radioprotection work, and new method-of-use filing are concrete proof that value was created under LifeRaft’s ownership.</p>
+    </div>
+  </ContentSection>
+
+  <ContentSection title="What LifeRaft Brings to a Transaction">
+    <CardGrid columns={2} items={transactionCards} />
+  </ContentSection>
+
+  <SiteCtaBand
+    title="LifeRaft is built around conviction in this asset."
+    body="That focus is a strength for a partner: the company’s job is not to dilute the story, but to present and transfer the opportunity clearly."
+    primaryHref="/partner/"
+    primaryLabel="Contact LifeRaft →"
+    secondaryHref="/development/"
+    secondaryLabel="View the Path Forward"
+  />
+
+  <SiteFooter />
+  <FooterStrip />
+</BaseLayout>

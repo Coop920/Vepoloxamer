@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PageHero from '../components/PageHero.astro';
+import FooterStrip from '../components/FooterStrip.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ContentSection from '../components/ContentSection.astro';
+import CardGrid from '../components/CardGrid.astro';
+import FormShell from '../components/FormShell.astro';
+
+const tracks = [
+  {
+    icon: '🏢',
+    title: 'Acquisition',
+    body: 'Full asset transfer including the CoM patent, the MUSC method-of-use license position, clinical materials, regulatory files, manufacturing documentation, and associated know-how.',
+    tag: 'Full Asset Transfer',
+    borderTopColor: 'var(--gold)'
+  },
+  {
+    icon: '💼',
+    title: 'Investment / Co-Development',
+    body: 'Capital support for proof-of-concept development in a collaborative structure, using the existing clinical and manufacturing head start to accelerate a focused program.',
+    tag: 'PoC Co-Development',
+    borderTopColor: 'var(--cerulean)'
+  },
+  {
+    icon: '📄',
+    title: 'Indication Licensing',
+    body: 'Exclusive or co-exclusive licensing for specific therapeutic areas where an existing partner already has clinical, manufacturing, and commercial infrastructure.',
+    tag: 'Indication-Specific',
+    borderTopColor: 'var(--ice)'
+  }
+];
+---
+<BaseLayout title="Vepoloxamer | Partner With Us">
+  <SiteHeader />
+  <PageHero
+    eyebrow="Section 08 — Partnership Opportunities"
+    title="Ready to Take<br><em>Vepoloxamer Forward?</em>"
+    intro="The mechanism is characterized, the clinical history is documented, the asset includes prior IND materials and manufacturing-process knowledge, and several transaction paths are available. LifeRaft is seeking the right partner through acquisition, investment, or indication-specific licensing."
+    primaryCta={{ href: '#contact', label: 'Schedule a Discussion →' }}
+    secondaryCta={{ href: '/science/', label: 'Learn About the Asset' }}
+  />
+
+  <ContentSection
+    eyebrow="Partnership Opportunities"
+    subtitle="Three Tracks. One Clear Next Step."
+    intro="The storyboard presents these as parallel paths rather than a ranked list. Different counterparties may want different structures."
+  >
+    <CardGrid columns={3} items={tracks} />
+  </ContentSection>
+
+  <ContentSection title="Contact" intro="Use the forms below either to request the gated placeholder data package or to open a more general strategic conversation.">
+    <div id="contact" class="grid grid-2">
+      <FormShell
+        title="Request the Data Package"
+        intro="Static Netlify-form-ready gate for the placeholder data-package flow."
+        formName="data-package-request"
+        fields={[
+          { name: 'name', label: 'Name', type: 'text', required: true },
+          { name: 'company', label: 'Company', type: 'text', required: true },
+          { name: 'email', label: 'Email', type: 'email', required: true },
+          {
+            name: 'interest_type',
+            label: 'Type of Interest',
+            type: 'select',
+            required: true,
+            options: [
+              { value: 'Acquire', label: 'Acquire' },
+              { value: 'Invest', label: 'Invest' },
+              { value: 'License', label: 'License' },
+              { value: 'Other', label: 'Other' }
+            ]
+          }
+        ]}
+      />
+
+      <FormShell
+        title="Partner Contact Form"
+        intro="General conversation intake for serious strategic interest."
+        formName="partner-contact"
+        fields={[
+          { name: 'name', label: 'Name', type: 'text', required: true },
+          { name: 'company', label: 'Company', type: 'text', required: true },
+          { name: 'role', label: 'Role', type: 'text' },
+          {
+            name: 'interest_type',
+            label: 'Type of Interest',
+            type: 'select',
+            required: true,
+            options: [
+              { value: 'Acquire', label: 'Acquire' },
+              { value: 'Invest', label: 'Invest' },
+              { value: 'License', label: 'License' },
+              { value: 'Other', label: 'Other' }
+            ]
+          },
+          { name: 'message', label: 'Message', type: 'textarea' }
+        ]}
+      />
+    </div>
+  </ContentSection>
+
+  <ContentSection title="Confidential Information & NDAs">
+    <div class="card">
+      <p>The public site is intended to establish the asset thesis clearly enough for a serious counterparty to engage. More detailed diligence materials, deeper clinical records, and non-public data can be shared after an initial fit conversation and under the appropriate confidentiality process.</p>
+      <p>This keeps the site commercially useful without trying to turn it into the full data room.</p>
+    </div>
+  </ContentSection>
+
+  <SiteFooter />
+  <FooterStrip />
+</BaseLayout>

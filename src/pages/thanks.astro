@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import FooterStrip from '../components/FooterStrip.astro';
+---
+<BaseLayout title="Vepoloxamer | Thank You">
+  <SiteHeader />
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Submission Received</div>
+      <h1 class="page-title">Thank you.</h1>
+      <p class="page-intro">Your message has been submitted. A follow-up can route through Netlify Forms and then on to the LifeRaft inbox workflow once deployment is connected.</p>
+      <div class="actions">
+        <a class="button primary" href="/">Back to Home</a>
+        <a class="button secondary" href="/partner/">Return to Partner Page</a>
+      </div>
+    </div>
+  </section>
+  <FooterStrip />
+</BaseLayout>

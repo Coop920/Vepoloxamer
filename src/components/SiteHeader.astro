@@ -1,0 +1,49 @@
+---
+const links = [
+  { href: '/science/', label: 'The Science' },
+  { href: '/preclinical/', label: 'Preclinical Evidence' },
+  { href: '/clinical-history/', label: 'Clinical History' },
+  { href: '/ip-protection/', label: 'IP & Patent Protection' },
+  { href: '/development/', label: 'Development Path' }
+];
+---
+<header class="page-header">
+  <div class="container header-inner">
+    <a class="logo" href="/">Vepoloxamer</a>
+
+    <div class="header-actions">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Toggle navigation"
+      >
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <a class="button primary" href="/partner/">Schedule a Discussion</a>
+    </div>
+
+    <div class="primary-nav-wrap">
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        {links.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('#primary-nav');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+</script>

@@ -1,0 +1,28 @@
+---
+const pages = [
+  ['1', 'Home', 'Platform Thesis'],
+  ['2', 'The Science', 'Core MoA'],
+  ['3', 'Preclinical', 'Published Papers'],
+  ['4', 'Clinical History', 'Trials & INDs'],
+  ['5', 'IP & Protection', 'Patent Moat'],
+  ['6', 'Development', 'Path Forward'],
+  ['7', 'About LifeRaft', 'The Investor'],
+  ['8', 'Partner', 'Acquire / Invest']
+];
+---
+<section class="flow">
+  <div class="container copy">
+    <div class="eyebrow">Site Architecture</div>
+    <h2>Page Flow Overview</h2>
+    <p>Eight pages — mechanism of action, published preclinical evidence, clinical trial history, IP, development path, About LifeRaft, and the ask.</p>
+    <div class="flow-grid">
+      {pages.map(([num, title, sub]) => (
+        <div class="flow-node">
+          <div class="flow-circle">{num}</div>
+          <h3>{title}</h3>
+          <p>{sub}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

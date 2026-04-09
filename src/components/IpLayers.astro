@@ -1,0 +1,22 @@
+---
+interface Item {
+  label: string;
+  title: string;
+  body: string;
+  expiry: string;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+<div class="ip-grid">
+  {items.map((item) => (
+    <article class="ip-box">
+      <div class="ip-label">{item.label}</div>
+      <h3 class="card-title">{item.title}</h3>
+      <p>{item.body}</p>
+      <div class="ip-expiry">{item.expiry}</div>
+    </article>
+  ))}
+</div>

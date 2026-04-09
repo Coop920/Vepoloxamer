@@ -1,0 +1,30 @@
+---
+interface Stat { value: string; label: string; }
+interface Cta { href: string; label: string; variant?: string; }
+interface Props { eyebrow?: string; title: string; intro: string; primaryCta?: Cta; secondaryCta?: Cta; stats?: Stat[]; footnote?: string; }
+const { eyebrow, title, intro, primaryCta, secondaryCta, stats = [], footnote } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    {eyebrow && <div class="eyebrow">{eyebrow}</div>}
+    <h1 class="page-title" set:html={title} />
+    <p class="page-intro">{intro}</p>
+    {(primaryCta || secondaryCta) && (
+      <div class="actions">
+        {primaryCta && <a class={`button ${primaryCta.variant ?? 'primary'}`} href={primaryCta.href}>{primaryCta.label}</a>}
+        {secondaryCta && <a class={`button ${secondaryCta.variant ?? 'secondary'}`} href={secondaryCta.href}>{secondaryCta.label}</a>}
+      </div>
+    )}
+    {stats.length > 0 && (
+      <div class="stats">
+        {stats.map((stat) => (
+          <div>
+            <div class="stat-value" set:html={stat.value} />
+            <div class="stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    )}
+    {footnote && <div class="footnote">{footnote}</div>}
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  intro?: string;
+  dark?: boolean;
+}
+const { eyebrow, title, subtitle, intro, dark = false } = Astro.props;
+---
+<section class:list={['section', dark && 'band']}>
+  <div class="container">
+    {(eyebrow || title || subtitle || intro) && (
+      <div class="copy prose-block">
+        {eyebrow && <div class="page-kicker">{eyebrow}</div>}
+        {title && <h2>{title}</h2>}
+        {subtitle && <h3 class="page-subtitle">{subtitle}</h3>}
+        {(title || subtitle) && <hr class="page-divider-rule" />}
+        {intro && <p class="section-intro-strong">{intro}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>

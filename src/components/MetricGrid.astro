@@ -1,0 +1,20 @@
+---
+interface Item {
+  icon?: string;
+  value: string;
+  body: string;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+<div class="grid grid-3">
+  {items.map((item) => (
+    <article class="card metric-card">
+      {item.icon && <div class="card-icon">{item.icon}</div>}
+      <div class="metric-value" set:html={item.value} />
+      <p>{item.body}</p>
+    </article>
+  ))}
+</div>

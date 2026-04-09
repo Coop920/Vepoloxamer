@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import PageHero from '../components/PageHero.astro';
+import FooterStrip from '../components/FooterStrip.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteCtaBand from '../components/SiteCtaBand.astro';
+import ContentSection from '../components/ContentSection.astro';
+import CardGrid from '../components/CardGrid.astro';
+import PublicationsList from '../components/PublicationsList.astro';
+
+const pills = [
+  ['featured', 'STEMI / Reperfusion Injury'],
+  ['featured', 'Ischemic Stroke'],
+  ['featured', 'Traumatic Brain Injury'],
+  ['featured', 'Radiation-Induced Oral Mucositis'],
+  ['', 'Muscular Dystrophy (DMD)'],
+  ['', 'Hemorrhagic Shock'],
+  ['', 'Burn Injury'],
+  ['', 'Radioprotection (Systemic)'],
+  ['', 'Peripheral Limb Ischemia'],
+  ['', 'Spinal Cord Injury'],
+  ['', 'Heart Failure'],
+  ['', 'Sickle Cell Disease']
+];
+
+const platformItems = [
+  { title: 'Muscular Dystrophy (DMD)', body: 'P188 corrected calcium overload in mdx cardiomyocytes and prevented acute cardiac failure during dobutamine stress in vivo. Subcutaneous delivery has also shown skeletal muscle protection.', tag: 'Orphan pathway' },
+  { title: 'Hemorrhagic Shock', body: 'P188 added to resuscitation fluid increased survival in severe hemorrhage models, prolonged hypotensive resuscitation time, and helped prevent multi-organ injury.', tag: 'Military relevance' },
+  { title: 'Burn Injury', body: 'Published studies show attenuation of wound deepening and zone-of-stasis damage, with benefit summarized in a 2024 systematic review.', tag: 'Acute rescue' },
+  { title: 'Radioprotection (Systemic)', body: 'The radioprotection thesis underpins the MUSC method-of-use filing and supports prophylactic use where healthy tissue exposure is anticipated.', tag: 'Patent-linked' },
+  { title: 'Peripheral Limb Ischemia', body: 'The membrane-protection mechanism extends logically into peripheral ischemic injury where tissue salvage depends on limiting secondary damage.', tag: 'Shared mechanism' },
+  { title: 'Spinal Cord Injury', body: 'Published preclinical support adds to the broader CNS rationale for Vepoloxamer in acute injury settings with inflammatory and membrane-disruption components.', tag: 'CNS platform' }
+];
+---
+<BaseLayout title="Vepoloxamer | Preclinical Evidence">
+  <SiteHeader />
+  <PageHero
+    eyebrow="Section 03 — Preclinical Evidence"
+    title="Published Preclinical Evidence Across 12+ Disease Areas"
+    intro="Vepoloxamer's multi-mechanistic activity has been validated across more than a dozen disease models in peer-reviewed literature. Lead indications receive full treatment below, while additional indications reinforce the broader platform story."
+  />
+
+  <ContentSection>
+    <div class="pill-row">
+      {pills.map(([variant, label]) => (
+        <span class:list={['pill', variant === 'featured' && 'featured']}>{label}</span>
+      ))}
+    </div>
+  </ContentSection>
+
+  <ContentSection
+    eyebrow="Preclinical Evidence"
+    subtitle="The Published Science Across Indications"
+    intro="Published Preclinical Evidence Across 12+ Disease Areas — Peer-Reviewed and Growing"
+  >
+    <div class="grid grid-2">
+      <article class="card">
+        <div class="card-icon">❤️</div>
+        <h3 class="card-title">STEMI / Reperfusion Injury</h3>
+        <p>Standard-of-care reperfusion itself causes the second, often larger injury. There is no approved pharmacological intervention that directly addresses this damage window.</p>
+        <p><strong>Market:</strong> Approximately 805,000 Americans experience myocardial infarction annually. Cardioprotection at reperfusion remains a recognized unmet need across interventional cardiology.</p>
+        <p><strong>Evidence:</strong> Porcine STEMI work showed intracoronary P188 at reperfusion improved mitochondrial yield and infarct size, while more recent publications add a nitric-oxide mediated mechanism beyond membrane sealing.</p>
+        <PublicationsList links={[
+          { href: 'https://pubmed.ncbi.nlm.nih.gov/27695713/', label: '→ Bartos et al. (2016): Intracoronary P188 Prevents Reperfusion Injury — JACC Basic Transl Sci' },
+          { href: 'https://www.nature.com/articles/s41598-025-97079-z', label: '→ Chen et al. (2025): Cardioprotection by P188 mediated through endothelial nitric oxide — Scientific Reports' },
+          { href: 'https://pubmed.ncbi.nlm.nih.gov/33073927/', label: '→ Salzman et al. (2020): P188 protects cardiomyocytes from reoxygenation injury' },
+          { href: 'https://pubmed.ncbi.nlm.nih.gov/24362314/', label: '→ Martindale & Metzger (2014): P188 blocks necrosis and apoptosis in cardiac I/R' }
+        ]} />
+        <div class="tag">No approved reperfusion drug</div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🧠</div>
+        <h3 class="card-title">Ischemic Stroke</h3>
+        <p>tPA remains the only approved acute therapy but carries hemorrhagic risk and a narrow window. Vepoloxamer is positioned as an adjunct strategy, not a replacement.</p>
+        <p><strong>Market:</strong> Roughly 795,000 strokes occur annually in the US, with ischemic stroke representing the large majority of cases.</p>
+        <p><strong>Evidence:</strong> Published data show reduced infarct volume, improved neurologic outcomes, support in aged animal models, and evidence of BBB preservation and MMP-9 inhibition.</p>
+        <PublicationsList links={[
+          { href: 'https://www.ahajournals.org/doi/10.1161/STROKEAHA.119.026049', label: '→ Wang et al. (2019): Vepoloxamer enhances fibrinolysis of tPA on acute ischemic stroke' },
+          { href: 'https://pubmed.ncbi.nlm.nih.gov/37869138/', label: '→ Zhang et al. (2023): Vepoloxamer + tPA reduces neurovascular damage in aged rats' },
+          { href: 'https://pubmed.ncbi.nlm.nih.gov/23613890/', label: '→ Gu et al. (2013): P188 reduces infarct volume and improves long-term survival' }
+        ]} />
+        <div class="tag">tPA combination strategy</div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🧬</div>
+        <h3 class="card-title">Traumatic Brain Injury</h3>
+        <p>No FDA-approved neuroprotective drug exists for acute TBI. Secondary microthrombosis and neuroinflammation are the major drivers of long-term disability.</p>
+        <p><strong>Window:</strong> Acute rescue, including published support for administration after injury rather than only prophylactic use.</p>
+        <p><strong>Evidence:</strong> Studies show reduced lesion size, improved behavioral recovery, a dose-response signal, a multi-day therapeutic window, and evidence that P188 crosses the BBB following IV administration after TBI.</p>
+        <PublicationsList links={[
+          { href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5900497/', label: '→ Zhang et al. (2018): Treatment of TBI with Vepoloxamer — J Neurotrauma' },
+          { href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10872547/', label: '→ Chen et al. (2024): Vepoloxamer dose-response and therapeutic window in TBI' },
+          { href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12419450/', label: '→ Alatrash et al. (2025): Active transport and BBB crossing demonstrated in vivo' }
+        ]} />
+        <div class="tag">BBB penetration demonstrated</div>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">☢️</div>
+        <h3 class="card-title">Radiation-Induced Oral Mucositis</h3>
+        <p>This page treats oral mucositis as a clinical-opportunity card rather than a depth-of-data card because the strategic appeal is the trial design efficiency.</p>
+        <p><strong>Window:</strong> Prophylactic use ahead of a scheduled insult, making it one of the cleanest path-to-proof-of-concept opportunities for the platform.</p>
+        <p><strong>Clinical opportunity:</strong> The endpoint is well-defined, the affected patient population is identifiable in advance, and the intervention timing is unusually straightforward.</p>
+        <PublicationsList links={[
+          { href: 'https://pubmed.ncbi.nlm.nih.gov/15302418/', label: '→ Lee et al. (2004): P188 prevents acute necrosis of irradiated skeletal muscle cells' }
+        ]} />
+        <div class="tag">Near-term PoC opportunity</div>
+      </article>
+    </div>
+  </ContentSection>
+
+  <ContentSection
+    eyebrow="Preclinical Evidence"
+    subtitle="Platform Breadth — Published Evidence Across Additional Indications"
+    intro="The broader platform breadth below reinforces that the mechanism maps across multiple injury contexts."
+  >
+    <CardGrid columns={3} items={platformItems} />
+  </ContentSection>
+
+  <SiteCtaBand
+    title="Serious science. Multiple paths to value."
+    body="The published literature does not point to a single fragile thesis. It points to a broader platform asset with several credible development entries."
+    primaryHref="/partner/"
+    primaryLabel="Schedule a Discussion →"
+    secondaryHref="/clinical-history/"
+    secondaryLabel="See Clinical History"
+  />
+
+  <SiteFooter />
+  <FooterStrip />
+</BaseLayout>
