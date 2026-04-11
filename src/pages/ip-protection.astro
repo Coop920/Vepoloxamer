@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import PageHero from '../components/PageHero.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteCtaBand from '../components/SiteCtaBand.astro';
 import ContentSection from '../components/ContentSection.astro';
@@ -50,11 +48,15 @@ const timeline = [
 ---
 <BaseLayout title="Vepoloxamer | IP & Protection">
   <SiteHeader />
-  <PageHero
-    eyebrow="Section 05 — IP & Patent Protection"
-    title="A Well-Constructed,<br><em>Multi-Jurisdictional Moat</em>"
-    intro="The IP position surrounding Vepoloxamer is designed in layers — combining foundational composition-of-matter protection with use-based coverage. Together they create a commercially meaningful moat around a novel, purified asset."
-  />
+  <section class="page-header-inline compact">
+    <div class="container copy">
+      <div class="page-kicker">IP &amp; Patent Protection</div>
+      <h1 class="page-subtitle">A Well-Constructed, Multi-Jurisdictional Moat</h1>
+      <hr class="page-divider-rule" />
+      <p class="section-intro-strong">The IP position surrounding Vepoloxamer is designed in layers — combining foundational composition-of-matter protection with use-based coverage. Together they create a commercially meaningful moat around a novel, purified asset.</p>
+    </div>
+  </section>
+
 
   <ContentSection>
     <IpLayers items={layers} />
@@ -76,14 +78,13 @@ const timeline = [
   </ContentSection>
 
   <SiteCtaBand
-    title="This is a defensible asset, not a chemistry commodity."
-    body="The purification, the documentation, and the licensed follow-on work are what distinguish Vepoloxamer from off-the-shelf commercial poloxamer material."
+    title="Contact Us"
+    text="The purification, the documentation, and the licensed follow-on work are what distinguish Vepoloxamer from off-the-shelf commercial poloxamer material."
     primaryHref="/partner/"
-    primaryLabel="Start a Conversation →"
+    primaryLabel="Contact Us"
     secondaryHref="/development/"
     secondaryLabel="See Development Options"
   />
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>

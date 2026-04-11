@@ -2,8 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import PageHero from '../components/PageHero.astro';
-import FlowOverview from '../components/FlowOverview.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import HomeStatsSection from '../components/HomeStatsSection.astro';
 import ContentSection from '../components/ContentSection.astro';
@@ -16,11 +14,11 @@ import SiteCtaBand from '../components/SiteCtaBand.astro';
 >
   <SiteHeader />
   <PageHero
-    eyebrow="Section 01 — Home"
+    eyebrow="Home"
     title="One Molecule.<br><em>Extraordinary Reach.</em>"
     intro="Vepoloxamer is a purified poloxamer therapeutic with 50 years of foundational science, a well-characterized core mechanism of action, and documented preclinical efficacy across 12+ indications — backed by ~4,000 patient exposures of human safety data, an established GMP manufacturing process, and a filed IND. Available for acquisition or co-development today."
     primaryCta={{ href: '/science/', label: 'Explore the Asset' }}
-    secondaryCta={{ href: '/science/', label: 'Learn More' }}
+    secondaryCta={{ href: '/partner/', label: 'Contact Us' }}
   />
 
   <HomeStatsSection
@@ -80,17 +78,13 @@ import SiteCtaBand from '../components/SiteCtaBand.astro';
     />
   </ContentSection>
 
-  <FlowOverview />
 
   <SiteCtaBand
     title="This Asset Is Available."
-    body="Vepoloxamer is available for outright acquisition, strategic partnership, or indication-specific licensing. Contact us to begin the conversation."
+    text="Vepoloxamer is available for outright acquisition, strategic partnership, or indication-specific licensing. Contact us to begin the conversation."
     primaryHref="/partner/"
-    primaryLabel="Schedule a Discussion"
-    secondaryHref="/partner/"
-    secondaryLabel="Contact Us"
+    primaryLabel="Contact Us"
   />
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>

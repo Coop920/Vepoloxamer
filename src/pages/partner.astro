@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import PageHero from '../components/PageHero.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ContentSection from '../components/ContentSection.astro';
 import CardGrid from '../components/CardGrid.astro';
@@ -35,10 +34,10 @@ const tracks = [
 <BaseLayout title="Vepoloxamer | Partner With Us">
   <SiteHeader />
   <PageHero
-    eyebrow="Section 08 — Partnership Opportunities"
+    eyebrow="Partnership Opportunities"
     title="Ready to Take<br><em>Vepoloxamer Forward?</em>"
     intro="The mechanism is characterized, the clinical history is documented, the asset includes prior IND materials and manufacturing-process knowledge, and several transaction paths are available. LifeRaft is seeking the right partner through acquisition, investment, or indication-specific licensing."
-    primaryCta={{ href: '#contact', label: 'Schedule a Discussion →' }}
+    primaryCta={{ href: '#contact', label: 'Contact Us' }}
     secondaryCta={{ href: '/science/', label: 'Learn About the Asset' }}
   />
 
@@ -109,5 +108,4 @@ const tracks = [
   </ContentSection>
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>

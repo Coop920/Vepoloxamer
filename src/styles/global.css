@@ -51,8 +51,6 @@ img, svg { max-width: 100%; height: auto; }
 .band { background: var(--deep-navy); color: white; padding: 2.5rem; margin: 2rem 0; }
 .band .section-title,.band .card-title { color: white; }
 .band p { color: rgba(255,255,255,.68); }
-.band .card p {color: var(--muted);}
-.band .card h3 {color: var(--deep-navy);}
 .quote { border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem; background: var(--cream); margin: 1.5rem 0; font-size: 1.45rem; font-style: italic; color: var(--deep-navy); }
 .quote cite { display: block; font-style: normal; font-family: 'DM Sans', sans-serif; font-size: .78rem; color: var(--muted); margin-top: .75rem; letter-spacing: .05rem; }
 .box { border: 2px solid var(--gold); padding: 1.5rem; position: relative; }
@@ -72,7 +70,6 @@ img, svg { max-width: 100%; height: auto; }
 .logo { color: var(--deep-navy); font-size: 1.5rem; font-weight: 600; }
 .nav { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .8rem; color: var(--muted); }
 .copy h2,.section-title { margin: 0 0 .75rem; color: var(--deep-navy); font-size: clamp(2rem,4vw,3rem); font-weight: 400; }
-.band .copy h2 { color: #fff; }
 .copy h3 { margin: 0 0 .75rem; color: var(--deep-navy); font-size: 1.8rem; font-family: 'Cormorant Garamond', serif; font-weight: 500; }
 .copy p { margin: 0 0 1rem; }
 .pill-row { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1rem 0 1.5rem; }
@@ -449,25 +446,23 @@ hr.soft { border: 0; border-top: 1px solid #ddd7cd; margin: 2rem 0; }
 /* Mobile navigation + clinical-history parity pass */
 .nav-toggle {
   display: none;
-  flex-direction: column;   /* key fix */
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-
   background: transparent;
   border: 1px solid rgba(14,31,56,0.18);
-  border-radius: 4px;
-
-  width: 44px;
-  height: 44px;
+  color: var(--deep-navy);
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-radius: 0.2rem;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
 .nav-toggle-line {
   display: block;
-  width: 18px;
+  width: 1.1rem;
   height: 2px;
-  background: var(--deep-navy);
+  background: currentColor;
+  margin: 0.18rem 0;
 }
 
 .primary-nav-wrap {
@@ -569,7 +564,7 @@ hr.soft { border: 0; border-top: 1px solid #ddd7cd; margin: 2rem 0; }
 
 @media (max-width: 960px) {
   .nav-toggle {
-    display: flex;
+    display: inline-flex;
   }
 
   .primary-nav-wrap {
@@ -616,3 +611,93 @@ hr.soft { border: 0; border-top: 1px solid #ddd7cd; margin: 2rem 0; }
   }
 }
 
+
+/* Option A PDF-dev-notes pass */
+.logo { font-size: clamp(2rem, 3vw, 2.4rem); }
+.header-inner { align-items: center; }
+.header-actions { display: flex; align-items: center; gap: .75rem; margin-left: auto; }
+
+.page-header-inline {
+  padding: 3rem 0 1.25rem;
+  background: var(--warm-white);
+}
+
+.page-header-inline .page-kicker {
+  margin-bottom: .45rem;
+}
+
+.page-header-inline .page-subtitle {
+  margin-bottom: .65rem;
+}
+
+.page-header-inline .page-divider-rule {
+  margin: .75rem 0 1rem;
+}
+
+.home-copy-center h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.home-copy-center p + p {
+  margin-top: .5rem;
+}
+
+.home-cta-links .tag {
+  font-size: .7rem;
+  padding: .35rem .65rem;
+}
+
+.footer-main {
+  border-top: 0;
+}
+
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-legal {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd7cd;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+
+.footer-legal a {
+  color: var(--deep-navy);
+  text-decoration: underline;
+}
+
+.cta .actions {
+  justify-content: center;
+}
+
+.cta .button.secondary {
+  color: white;
+}
+
+.page-header-inline.compact {
+  padding-top: 2.4rem;
+}
+
+@media (max-width: 960px) {
+  .header-actions {
+    order: 2;
+  }
+  .primary-nav-wrap {
+    order: 3;
+  }
+}
+
+.nav--desktop {
+  display: flex;
+}
+
+@media (max-width: 960px) {
+  .nav--desktop {
+    display: none;
+  }
+}

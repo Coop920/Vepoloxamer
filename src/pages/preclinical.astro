@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import PageHero from '../components/PageHero.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteCtaBand from '../components/SiteCtaBand.astro';
 import ContentSection from '../components/ContentSection.astro';
@@ -35,11 +33,15 @@ const platformItems = [
 ---
 <BaseLayout title="Vepoloxamer | Preclinical Evidence">
   <SiteHeader />
-  <PageHero
-    eyebrow="Section 03 — Preclinical Evidence"
-    title="Published Preclinical Evidence Across 12+ Disease Areas"
-    intro="Vepoloxamer's multi-mechanistic activity has been validated across more than a dozen disease models in peer-reviewed literature. Lead indications receive full treatment below, while additional indications reinforce the broader platform story."
-  />
+  <section class="page-header-inline compact">
+    <div class="container copy">
+      <div class="page-kicker">Preclinical Evidence</div>
+      <h1 class="page-subtitle">Published Preclinical Evidence Across 12+ Disease Areas — Peer-Reviewed and Growing</h1>
+      <hr class="page-divider-rule" />
+      <p class="section-intro-strong">Vepoloxamer's multi-mechanistic activity has been validated across more than a dozen disease models in peer-reviewed literature, published in journals including <em>JACC Basic &amp; Translational Science</em>, <em>Scientific Reports</em> (Nature), <em>Stroke</em> (AHA), <em>Journal of Neurotrauma</em>, and <em>ASH Blood</em>. Each indication below links directly to the primary publications. All represent areas where the core mechanism of action maps onto significant unmet needs with limited or no approved pharmacological solutions.</p>
+    </div>
+  </section>
+
 
   <ContentSection>
     <div class="pill-row">
@@ -121,14 +123,13 @@ const platformItems = [
   </ContentSection>
 
   <SiteCtaBand
-    title="Serious science. Multiple paths to value."
-    body="The published literature does not point to a single fragile thesis. It points to a broader platform asset with several credible development entries."
+    title="Contact Us"
+    text="The published literature does not point to a single fragile thesis. It points to a broader platform asset with several credible development entries."
     primaryHref="/partner/"
-    primaryLabel="Schedule a Discussion →"
+    primaryLabel="Contact Us"
     secondaryHref="/clinical-history/"
     secondaryLabel="See Clinical History"
   />
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>

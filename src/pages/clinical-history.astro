@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import PageHero from '../components/PageHero.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteCtaBand from '../components/SiteCtaBand.astro';
 import ContentSection from '../components/ContentSection.astro';
@@ -29,11 +27,15 @@ const metrics = [
 ---
 <BaseLayout title="Vepoloxamer | Clinical History">
   <SiteHeader />
-  <PageHero
-    eyebrow="Section 04 — Clinical History"
-    title="Not a Paper Drug:<br><em>A Deep Human Evidence Base — Including INDs, Clinical Datasets, and an Established Manufacturing Process</em>"
-    intro="Vepoloxamer has been studied in human clinical trials for over three decades. The asset includes Investigational New Drug files, extensive human safety and pharmacokinetic datasets, and a well-characterized manufacturing process that can be reestablished through established global CDMOs."
-  />
+  <section class="page-header-inline compact">
+    <div class="container copy">
+      <div class="page-kicker">Clinical History</div>
+      <h1 class="page-subtitle">Not a Paper Drug: A Deep Human Evidence Base — Including INDs, Clinical Datasets, and an Established Manufacturing Process</h1>
+      <hr class="page-divider-rule" />
+      <p class="section-intro-strong">Vepoloxamer has been studied in human clinical trials for over three decades. The asset includes Investigational New Drug files, extensive human safety and pharmacokinetic datasets, and a well-characterized manufacturing process that can be reestablished through established global CDMOs.</p>
+    </div>
+  </section>
+
 
   <ContentSection>
     <MetricGrid items={metrics} />
@@ -234,14 +236,13 @@ const metrics = [
   </ContentSection>
 
   <SiteCtaBand
-    title="Human evidence changes the starting point."
-    body="For a serious partner, Vepoloxamer is not just a mechanism slide. It is a molecule with human history, IND files, large clinical datasets, manufacturing-process documentation, and post-acquisition value creation."
+    title="Contact Us"
+    text="For a serious partner, Vepoloxamer is not just a mechanism slide. It is a molecule with human history, IND files, large clinical datasets, manufacturing-process documentation, and post-acquisition value creation."
     primaryHref="/partner/"
-    primaryLabel="Discuss the Asset →"
+    primaryLabel="Contact Us"
     secondaryHref="/development/"
     secondaryLabel="View Development Path"
   />
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>

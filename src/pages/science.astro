@@ -1,25 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import PageHero from '../components/PageHero.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteCtaBand from '../components/SiteCtaBand.astro';
 import ContentSection from '../components/ContentSection.astro';
 ---
 <BaseLayout title="Vepoloxamer | The Science">
   <SiteHeader />
-  <PageHero
-    eyebrow="Section 02 — The Science"
-    title="The Core Mechanism of Action:<br><em>Why Vepoloxamer Can Go Where Other Drugs Cannot</em>"
-    intro="Most therapeutics are designed around a single receptor, enzyme, or pathway. Vepoloxamer operates at a more fundamental level — the cellular membrane itself. Its core mechanism of action gives it two distinct and valuable clinical windows: it can be deployed before an insult to protect healthy cells from anticipated damage, or immediately after an insult to limit the cascade of secondary injury that follows."
-  />
 
-  <ContentSection
-    eyebrow="The Science"
-    subtitle="The Core Mechanism of Action"
-    intro="Published science points to a multi-mechanistic therapeutic profile rather than a single narrow receptor story."
-  >
+  <section class="page-header-inline">
+    <div class="container copy">
+      <div class="page-kicker">The Science</div>
+      <h1 class="page-subtitle">The Core Mechanism of Action: Why Vepoloxamer Can Go Where Other Drugs Cannot</h1>
+      <hr class="page-divider-rule" />
+      <p class="section-intro-strong">Most therapeutics are designed around a single receptor, enzyme, or pathway. Vepoloxamer operates at a more fundamental level — the cellular membrane itself. Its core mechanism of action gives it two distinct and valuable clinical windows: it can be deployed <strong>before an insult</strong> to protect healthy cells from anticipated damage, or <strong>immediately after an insult</strong> to limit the cascade of secondary injury that follows.</p>
+    </div>
+  </section>
+
+  <ContentSection>
     <div class="grid grid-3">
       <article class="card">
         <div class="card-icon">
@@ -45,7 +43,7 @@ import ContentSection from '../components/ContentSection.astro';
           </svg>
         </div>
         <h3 class="card-title">Membrane Stabilization</h3>
-        <p>Integrates with and stabilizes damaged cell membranes via its hydrophobic central block, reducing leakage and preserving cellular integrity under stress.</p>
+        <p>Integrates with and stabilizes damaged cell membranes via its hydrophobic central block, reducing leakage and preserving cellular integrity under stress — trauma, ischemia, radiation.</p>
       </article>
       <article class="card">
         <div class="card-icon">⚡</div>
@@ -60,80 +58,58 @@ import ContentSection from '../components/ContentSection.astro';
       <article class="card">
         <div class="card-icon">🔬</div>
         <h3 class="card-title">Intracellular Engagement</h3>
-        <p>Emerging research demonstrates that Vepoloxamer is not limited to surface membrane interaction and may also modulate downstream intracellular repair pathways.</p>
-        <a class="pub-link" href="#">Alatrash et al. (2025): Active transport of P188 in brain endothelial cells for cellular repair</a>
+        <p>Emerging research demonstrates that Vepoloxamer is not limited to surface membrane interaction. In brain endothelial cells, P188 is actively transported <em>into</em> damaged cells via endocytosis and is retained intracellularly for up to 48 hours in injured tissue — consistent with modulation of downstream intracellular repair pathways, including lysosomal and mitochondrial processes. This dual extracellular/intracellular activity expands the mechanistic rationale beyond membrane resealing alone.</p>
+        <p style="margin-top:8px; font-size:12px; color:var(--muted); font-style:italic;">Source: Alatrash et al. (2025): Active transport of P188 in brain endothelial cells for cellular repair — J. Biomedical Science and Engineering, Vol. 18, pp. 301–316. DOI: 10.4236/jbise.2025.187022.</p>
       </article>
       <article class="card">
         <div class="card-icon">💨</div>
         <h3 class="card-title">Nitric Oxide–Mediated Cardioprotection</h3>
-        <p>A 2025 study published in Scientific Reports demonstrated that P188's cardioprotective effects are mediated through increased endothelial nitric oxide production.</p>
-        <a class="pub-link" href="#">Chen et al. (2025) and Li et al. (2025)</a>
+        <p>A 2025 study published in <em>Scientific Reports</em> (Nature) discovered that P188's cardioprotective effects are mediated through <em>increased endothelial nitric oxide production</em> — a mechanism fundamentally distinct from membrane sealing. Using iPSC-derived cardiomyocytes and isolated rat hearts, the investigators demonstrated that pharmacological inhibition of nitric oxide synthase completely abolished P188's protective effects. A companion study confirmed this mechanism in an endothelial cell–cardiomyocyte co-culture system.</p>
+        <p style="margin-top:8px; font-size:12px; color:var(--muted); font-style:italic;">Sources: Chen et al. (2025): Scientific Reports (Nature). PMID: 40307302. Li et al. (2025): Cells. PMID: 40643522.</p>
       </article>
     </div>
   </ContentSection>
 
-  <ContentSection
-    eyebrow="The Science"
-    subtitle="Prophylactic Shield or Acute Rescue Agent"
-    intro="Because the molecule acts at the membrane and downstream injury-cascade level, it can plausibly fit both planned-insult and post-insult clinical settings."
-  >
+  <ContentSection title="Two Clinical Windows: Before the Insult, and After" intro="A defining feature of Vepoloxamer's core mechanism of action is timing flexibility — it is clinically useful both prophylactically and as an acute rescue agent. This is unusual for a single molecule and dramatically broadens its commercial applicability across very different therapeutic areas.">
     <div class="grid" style="grid-template-columns: 1fr;">
       <article class="moa-box">
         <div class="scenario">Example: Radiation Therapy for Head & Neck Cancer</div>
         <h3 class="card-title" style="color: var(--ice);">Mode 1: Prophylactic — Before the Insult</h3>
-        <p>If Vepoloxamer is on board prior to radiation delivery, it inserts into healthy cell membranes and protects them from the oxidative and inflammatory cascade triggered by ionizing radiation.</p>
-        <div class="embed-note">
-          Diagram placeholder: <strong>vepoloxamer_radiation_timeline.html</strong><br />
-          The notes suggest this should likely stack with the copy or open in a modal on a future refinement pass.
-        </div>
+        <p>When radiation is administered, damage to surrounding healthy tissue is unavoidable under the current standard of care. If Vepoloxamer is on board <em>prior to</em> radiation delivery, it inserts into healthy cell membranes and protects them from the oxidative and inflammatory cascade triggered by ionizing radiation — effectively shielding the tissue before injury occurs.</p>
+        <p style="margin-top:10px;">The same prophylactic model applies to any scheduled insult: chemotherapy-induced mucositis, elective cardiac surgery, or anticipated high-dose radiation exposure in defense or civilian nuclear scenarios.</p>
+        <div class="embed-note"><strong>Insert here:</strong> vepoloxamer_radiation_timeline.html</div>
       </article>
-
       <article class="moa-box">
         <div class="scenario">Example: STEMI & Reperfusion Injury</div>
         <h3 class="card-title" style="color: var(--ice);">Mode 2: Acute Rescue — After the Insult</h3>
-        <p>Vepoloxamer administered at the moment of reperfusion can attenuate damage by sealing compromised cardiomyocyte membranes and dampening the inflammatory cascade before it propagates.</p>
-        <div class="outcome" style="background: rgba(201,168,76,0.12); color: rgba(255,255,255,0.8); border-left-color: var(--gold);">
-          The same acute rescue mechanism applies to ischemic stroke and TBI, where secondary injury drives much of the long-term damage.
-        </div>
+        <p>In a heart attack (STEMI), the initial ischemia causes damage — but a second injury often follows. When a blocked coronary artery is reopened via PCI or thrombolytics, the sudden return of oxygenated blood triggers <em>reperfusion injury</em>: an oxidative burst that destroys viable cardiac tissue that survived the original ischemia. Current standard of care has no agent that addresses this.</p>
+        <p style="margin-top:10px;">Vepoloxamer administered at the moment of reperfusion can attenuate this damage by sealing compromised cardiomyocyte membranes and dampening the inflammatory cascade before it propagates. In a published porcine STEMI model, intracoronary P188 at reperfusion significantly improved mitochondrial yield and infarct size vs. control.</p>
+        <div class="outcome" style="background: rgba(201,168,76,0.12); color: rgba(255,255,255,0.8); border-left-color: var(--gold);">↳ The same acute rescue mechanism applies to ischemic stroke (where tPA itself causes secondary microvascular disruption) and TBI, where secondary neuroinflammation and microthrombosis drive the majority of long-term damage.</div>
       </article>
     </div>
 
     <blockquote class="quote quote--indented">
-      “Vepoloxamer is an amphipathic triblock copolymer with multi-mechanistic properties believed to improve these pathophysiologic consequences, by sealing damaged cell membranes and inhibiting hydrophobic cellular adhesive interactions.”
-      <cite>— White, Hines, Liu et al., Blood (2015)</cite>
+      "Vepoloxamer is an amphipathic triblock copolymer with multi-mechanistic properties believed to improve these pathophysiologic consequences, by sealing damaged cell membranes and inhibiting hydrophobic cellular adhesive interactions."
+      <cite>— White, Hines, Liu et al., Blood (2015) · American Society of Hematology · doi: 10.1182/blood.V126.23.2180.2180</cite>
     </blockquote>
   </ContentSection>
 
-  <ContentSection
-    eyebrow="The Science"
-    subtitle="Why Multi-Indication Reach Is Scientifically Logical"
-    intro="Oxidative stress, membrane damage, and inflammatory cascades are shared endpoints across many diseases and injuries. The platform breadth follows from the mechanism."
-  >
-    <div class="embed-note">
-      Diagram placeholder: <strong>vepoloxamer_hub_spoke_diagram_v4.html</strong><br />
-      The notes suggest this may also be a modal candidate in a future UI pass.
-    </div>
-
+  <ContentSection title="Why Multi-Indication Reach Is Scientifically Logical" intro="Oxidative stress, membrane damage, and inflammatory cascades are not unique to one disease — they are shared endpoints resulting from many diseases and injuries, such as traumatic injury, ischemic events (cardiac, cerebral, and peripheral), radiation exposure, hemolytic disorders like sickle cell disease, inherited myopathies, and acute burn injury, among others. A therapeutic that intervenes at both the membrane level and intracellularly carries credible rationale across all of them. The platform breadth is not a stretch — it follows directly from the multi-layered mechanism of action.">
+    <div class="embed-note"><strong>Insert here:</strong> vepoloxamer_hub_spoke_diagram_v4.html</div>
     <div class="band" style="margin-top: 2rem;">
       <h2 class="section-title">50 Years of Science — And a Purification That Changes Everything</h2>
-      <p>
-        Commercial poloxamer 188 is a mixed polymer population with batch-to-batch variability. An early
-        key discovery was that low-molecular-weight impurities present in commercial-grade P-188 were
-        responsible for dose-limiting renal toxicity — and that removing them through a proprietary
-        purification process enabled the higher therapeutic doses required for efficacy.
-      </p>
+      <p>Commercial poloxamer 188 is a mixed polymer population with batch-to-batch variability. An early key discovery was that low-molecular-weight impurities present in commercial-grade P-188 were responsible for dose-limiting renal toxicity — and that removing them through a proprietary purification process enabled the higher therapeutic doses required for efficacy, without clinically significant kidney injury.<sup style="color:var(--gold); font-size:10px;">1</sup> Vepoloxamer is that purified, defined entity. This purification is what the Composition of Matter patent protects, and what separates it from the commodity chemical available from any supplier.</p>
+      <p style="margin-top:10px; font-size:11px; color:rgba(255,255,255,.7); font-style:italic; border-top: 1px solid rgba(255,255,255,.18); padding-top:8px;"><sup style="color:var(--gold);">1</sup> Emanuele M, Balasubramaniam B. Differential effects of commercial-grade and purified poloxamer 188 on renal function. <em>Drugs R D.</em> 2014;14(2):73–83. doi:10.1007/s40268-014-0041-0. PMID: 24719174.</p>
+      <p style="margin-top:12px; font-size:12px; color:rgba(255,255,255,0.65); font-style:italic;">The peer-reviewed literature base for Poloxamer 188 / Pluronic F-68 extends to at least March 1975: Rodeheaver GT et al. "Mechanical cleansing of contaminated wounds with a surfactant." Am J Surg. 1975;129(3):241–245. PMID: 1119685. DOI: 10.1016/0002-9610(75)90231-7.</p>
     </div>
   </ContentSection>
 
   <SiteCtaBand
-    title="Mechanism is where the platform story begins."
-    body="The science page establishes why the same molecule can logically map to multiple clinical windows and therapeutic areas."
-    primaryHref="/preclinical/"
-    primaryLabel="See the Evidence"
-    secondaryHref="/partner/"
-    secondaryLabel="Contact Us"
+    title="Contact Us"
+    text="Vepoloxamer is available for outright acquisition, strategic partnership, or indication-specific licensing. Contact us to begin the conversation."
+    primaryLabel="Contact Us"
+    primaryHref="/partner/"
   />
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>

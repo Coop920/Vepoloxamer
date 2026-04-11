@@ -1,14 +1,28 @@
 ---
-interface Props { title?: string; text?: string; }
-const { title = 'This Asset Is Available.', text = 'Vepoloxamer is available for outright acquisition, strategic partnership, or indication-specific licensing. Contact us to begin the conversation.' } = Astro.props;
+interface Props {
+  title?: string;
+  text?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+const {
+  title = 'This Asset Is Available.',
+  text = 'Vepoloxamer is available for outright acquisition, strategic partnership, or indication-specific licensing. Contact us to begin the conversation.',
+  primaryLabel = 'Contact Us',
+  primaryHref = '/partner/',
+  secondaryLabel = '',
+  secondaryHref = '/partner/'
+} = Astro.props;
 ---
 <section class="cta">
   <div class="container">
     <h2 class="page-title" style="font-size: clamp(2.4rem, 5vw, 3.4rem); max-width:none;">{title}</h2>
     <p>{text}</p>
     <div class="actions" style="justify-content:center;">
-      <a class="button primary" href="/partner/">Schedule a Discussion</a>
-      <a class="button secondary" href="/partner/#data-package">Download Data Package</a>
+      <a class="button primary" href={primaryHref}>{primaryLabel}</a>
+      {secondaryLabel && <a class="button secondary" href={secondaryHref}>{secondaryLabel}</a>}
     </div>
   </div>
 </section>

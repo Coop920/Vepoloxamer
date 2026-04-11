@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import PageHero from '../components/PageHero.astro';
-import FooterStrip from '../components/FooterStrip.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteCtaBand from '../components/SiteCtaBand.astro';
 import ContentSection from '../components/ContentSection.astro';
@@ -52,7 +51,7 @@ const transactionCards = [
 <BaseLayout title="Vepoloxamer | About LifeRaft Biosciences">
   <SiteHeader />
   <PageHero
-    eyebrow="Section 07 — About LifeRaft Biosciences"
+    eyebrow="About LifeRaft Biosciences"
     title="About LifeRaft Biosciences"
     intro="LifeRaft Biosciences is a biopharmaceutical investment company headquartered in Charleston, South Carolina. It was created as the vehicle to acquire and continue developing Vepoloxamer after Savara wound the program down. Vepoloxamer remains the company’s focus."
   />
@@ -81,11 +80,10 @@ const transactionCards = [
     title="LifeRaft is built around conviction in this asset."
     body="That focus is a strength for a partner: the company’s job is not to dilute the story, but to present and transfer the opportunity clearly."
     primaryHref="/partner/"
-    primaryLabel="Contact LifeRaft →"
+    primaryLabel="Contact Us"
     secondaryHref="/development/"
     secondaryLabel="View the Path Forward"
   />
 
   <SiteFooter />
-  <FooterStrip />
 </BaseLayout>
