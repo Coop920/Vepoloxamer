@@ -612,6 +612,31 @@ hr.soft { border: 0; border-top: 1px solid #ddd7cd; margin: 2rem 0; }
 }
 
 
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* MOBILE */
+@media (max-width: 960px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
 /* Option A PDF-dev-notes pass */
 .logo { font-size: clamp(2rem, 3vw, 2.4rem); }
 .header-inner { align-items: center; }

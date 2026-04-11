@@ -1,38 +1,25 @@
----
-const links = [
-  { href: '/science/', label: 'The Science' },
-  { href: '/preclinical/', label: 'Preclinical Evidence' },
-  { href: '/clinical-history/', label: 'Clinical History' },
-  { href: '/ip-protection/', label: 'IP & Patent Protection' },
-  { href: '/development/', label: 'Development Path' }
-];
----
 <header class="page-header">
   <div class="container header-inner">
     <a class="logo" href="/">Vepoloxamer</a>
 
-    <div class="header-actions">
-      <nav class="nav nav--desktop" aria-label="Primary desktop">
-        {links.map((link) => (
-          <a href={link.href}>{link.label}</a>
-        ))}
-      </nav>
-      <a class="button primary" href="/partner/">Schedule a Discussion</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-      </button>
-    </div>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Toggle navigation"
+    >
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
 
-    <div class="primary-nav-wrap">
-      <nav id="primary-nav" class="nav" aria-label="Primary">
-        {links.map((link) => (
-          <a href={link.href}>{link.label}</a>
-        ))}
-        <a class="button primary" href="/partner/">Schedule a Discussion</a>
-      </nav>
-    </div>
+    <nav id="primary-nav" class="nav" aria-label="Primary">
+      {links.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+      <a class="button primary" href="/partner/">Schedule a Discussion</a>
+    </nav>
   </div>
 </header>
 
