@@ -1,20 +1,24 @@
+---
+const links = [
+  { href: '/science/', label: 'The Science' },
+  { href: '/preclinical/', label: 'Preclinical Evidence' },
+  { href: '/clinical-history/', label: 'Clinical History' },
+  { href: '/ip-protection/', label: 'IP & Patent Protection' },
+  { href: '/development/', label: 'Development Path' }
+];
+---
+
 <header class="page-header">
   <div class="container header-inner">
     <a class="logo" href="/">Vepoloxamer</a>
 
-    <button
-      class="nav-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-      aria-label="Toggle navigation"
-    >
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
       <span class="nav-toggle-line"></span>
       <span class="nav-toggle-line"></span>
       <span class="nav-toggle-line"></span>
     </button>
 
-    <nav id="primary-nav" class="nav" aria-label="Primary">
+    <nav id="primary-nav" class="nav">
       {links.map((link) => (
         <a href={link.href}>{link.label}</a>
       ))}
