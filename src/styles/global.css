@@ -398,3 +398,11 @@ a {
     border-top: 1px solid #e6e0d6;
   }
 }
+
+.copy h2 {
+  margin-top: 2rem;
+}
+
+.copy p {
+  margin-top: 0.75rem;
+}
