@@ -3,7 +3,61 @@ interface Props {
   html: string;
 }
 const { html } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
+const withBase = (path: string) => {
+  if (!path.startsWith('/')) return path;
+  return `${base}${path.slice(1)}`;
+};
+
+const linkMap: Record<string, string> = {
+  'Core MoA →': '/science/',
+  'Indications &amp; Trials →': '/preclinical/',
+  'IP Position →': '/ip-protection/',
+  'Explore the Asset →': '/science/',
+  'Contact Us': '/partner/',
+  'Schedule a Discussion →': '/partner/',
+  'Learn More': '/science/',
+  'See Clinical History': '/clinical-history/',
+  'See Development Options': '/development/',
+  'View Development Path': '/development/',
+  'Review the IP': '/ip-protection/',
+  'View Preclinical Evidence': '/preclinical/',
+};
+
+let content = html;
+
+// 1) Fix any existing root-relative links and assets
+content = content.replace(/href="\/([^"]*)"/g, (_m, path) => {
+  return `href="${withBase('/' + path)}"`;
+});
+
+content = content.replace(/src="\/([^"]*)"/g, (_m, path) => {
+  return `src="${withBase('/' + path)}"`;
+});
+
+// 2) Convert known faux-links into real anchors
+for (const [label, href] of Object.entries(linkMap)) {
+  const safeHref = withBase(href);
+
+  content = content.replaceAll(
+    `<div class="wf-tag">${label}</div>`,
+    `<a href="${safeHref}" class="wf-tag">${label}</a>`
+  );
+
+  content = content.replaceAll(
+    `<div class="wf-btn-primary">${label}</div>`,
+    `<a href="${safeHref}" class="wf-btn-primary">${label}</a>`
+  );
+
+  content = content.replaceAll(
+    `<div class="wf-btn-secondary">${label}</div>`,
+    `<a href="${safeHref}" class="wf-btn-secondary">${label}</a>`
+  );
+}
 ---
+
 <div class="page-content-wrap">
-  <div class="wireframe" set:html={html}></div>
+  <div class="wireframe" set:html={content}></div>
 </div>
