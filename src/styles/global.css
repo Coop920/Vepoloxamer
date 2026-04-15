@@ -321,14 +321,6 @@ a {
   gap: 1rem;
 }
 
-.logo {
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--deep-navy);
-  font-size: clamp(2.8rem, 4vw, 4.25rem);
-  font-weight: 600;
-  line-height: 1;
-}
-
 .header-cta {
   white-space: nowrap;
 }
