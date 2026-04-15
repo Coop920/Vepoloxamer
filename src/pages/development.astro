@@ -1,99 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import PageHero from '../components/PageHero.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import SiteCtaBand from '../components/SiteCtaBand.astro';
-import ContentSection from '../components/ContentSection.astro';
-import CardGrid from '../components/CardGrid.astro';
-import AssetHighlight from '../components/AssetHighlight.astro';
-
-const options = [
-  {
-    icon: '🎯',
-    title: 'Focused Proof of Concept',
-    body: 'Select one or two highest-priority indications and execute a lean proof-of-concept Phase I/II leveraging the existing IND. This offers the fastest path to de-risking value with the lowest initial capital requirement.',
-    tag: 'Lowest Capital · Fastest Timeline'
-  },
-  {
-    icon: '🏗️',
-    title: 'Buy & Build',
-    body: 'Acquire the full platform and build a team around it — using the preclinical breadth, clinical history, and established manufacturing-process documentation as the founding assets of a new specialty-pharma company.',
-    tag: 'Platform Company Model'
-  },
-  {
-    icon: '🤝',
-    title: 'Indication Licensing',
-    body: 'License specific indications to partners with existing therapeutic-area infrastructure — maximizing indication coverage while minimizing per-partner capital requirements. This can proceed in parallel with other tracks.',
-    tag: 'Flexible Structure'
-  }
-];
+import StoryboardContent from '../components/StoryboardContent.astro';
+import pageHtml from '../storyboard/development.html?raw';
 ---
 <BaseLayout title="Vepoloxamer | Development Path">
   <SiteHeader />
-  <PageHero
-    eyebrow="Development Path"
-    title="One Filed IND,<br><em>Established Manufacturing Process, Extensive Clinical History. Broad Optionality.</em>"
-    intro="A strategic acquirer is not starting with a blank platform. Vepoloxamer arrives with an unusual combination of clinical history, regulatory materials, manufacturing-process documentation, and open runway in several clinically untested indications."
-  />
-
-  <ContentSection
-    eyebrow="Development Path"
-    subtitle="What Comes Next"
-    intro="The page is meant to present parallel strategic options rather than a ranked menu. Different buyers may prefer different transaction structures."
-  >
-    <CardGrid columns={3} items={options} />
-  </ContentSection>
-
-  <ContentSection title="What the Asset Includes">
-    <div class="grid grid-2">
-      <article class="card">
-        <h3 class="card-title">✓ Included in Transfer</h3>
-        <p>Composition of Matter patent through 2035. MUSC method-of-use patent application and any issuing patents, exclusively licensed to LifeRaft. One complete filed IND, a draft heart-failure IMPD, clinical datasets from prior programs, manufacturing process documentation and formulation know-how, and 50+ years of published scientific literature.</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">→ What Comes Next</h3>
-        <p>Lead-indication selection. CDMO qualification and manufacturing-process reestablishment. PoC Phase I/II protocol design leveraging the existing IND files and safety data. Clinical team assembly. Dose-escalation and PK confirmation in the new chosen indication.</p>
-      </article>
-    </div>
-  </ContentSection>
-
-  <ContentSection>
-    <AssetHighlight
-      eyebrow="Timeline Advantage — Established Manufacturing Process"
-      title="A Known Process, Documented Specifications, and Global CDMO Accessibility"
-      body={[
-        'GMP manufacturing development for a novel drug typically requires major time and capital before a single clinical dose can be manufactured. Vepoloxamer’s process has already been developed, implemented, and characterized.',
-        'That means a strategic acquirer can work from known specifications and a known purification process rather than undertaking first-principles development.'
-      ]}
-    />
-  </ContentSection>
-
-  <ContentSection dark title="Why Act Now">
-    <div class="grid grid-3">
-      <article class="card">
-        <h3 class="card-title">Patent Clock</h3>
-        <p>Each year of delay reduces commercial exclusivity under the CoM patent. A filed IND is already in hand, the draft heart-failure IMPD exists, and the next steps are operational rather than hypothetical.</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">No Approved Competition</h3>
-        <p>STEMI reperfusion injury, ischemic stroke, acute TBI, and oral mucositis all lack FDA-approved pharmacological interventions. First-mover advantage in these spaces could be commercially decisive.</p>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Characterized Safety & Mechanism</h3>
-        <p>~4,000 patient exposures, a well-understood mechanism of action, one filed IND, and a documented manufacturing process represent a foundation that usually takes years and significant capital to assemble.</p>
-      </article>
-    </div>
-  </ContentSection>
-
-  <SiteCtaBand
-    title="Several transaction structures are viable."
-    body="Acquisition, co-development, or indication-specific licensing can all fit this asset. The right structure depends on how a partner wants to deploy capital and internal capability."
-    primaryHref="/partner/"
-    primaryLabel="Contact Us"
-    secondaryHref="/ip-protection/"
-    secondaryLabel="Review the IP"
-  />
-
+  <StoryboardContent html={pageHtml} />
   <SiteFooter />
 </BaseLayout>

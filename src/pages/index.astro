@@ -1,90 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import PageHero from '../components/PageHero.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import HomeStatsSection from '../components/HomeStatsSection.astro';
-import ContentSection from '../components/ContentSection.astro';
-import CardGrid from '../components/CardGrid.astro';
-import SiteCtaBand from '../components/SiteCtaBand.astro';
+import StoryboardContent from '../components/StoryboardContent.astro';
+import pageHtml from '../storyboard/index.html?raw';
 ---
-<BaseLayout
-  title="Vepoloxamer | Home"
-  description="Vepoloxamer investor and acquirer outreach site."
->
+<BaseLayout title="Vepoloxamer | Home">
   <SiteHeader />
-  <PageHero
-    eyebrow="Home"
-    title="One Molecule.<br><em>Extraordinary Reach.</em>"
-    intro="Vepoloxamer is a purified poloxamer therapeutic with 50 years of foundational science, a well-characterized core mechanism of action, and documented preclinical efficacy across 12+ indications — backed by ~4,000 patient exposures of human safety data, an established GMP manufacturing process, and a filed IND. Available for acquisition or co-development today."
-    primaryCta={{ href: '/science/', label: 'Explore the Asset' }}
-    secondaryCta={{ href: '/partner/', label: 'Contact Us' }}
-  />
-
-  <HomeStatsSection
-    items={[
-      { value: '12+', label: 'Indications with Published Preclinical Evidence' },
-      { value: '~4,000<sup>*</sup>', label: 'Patients Exposed in Clinical Trials' },
-      { value: '2035', label: 'Composition of Matter Patent' },
-      { value: '50 yrs', label: 'Scientific Research Foundation' }
-    ]}
-  />
-
-  <ContentSection>
-    <div class="home-copy-center copy">
-      <h2>A Rare Asset: Characterized Core Mechanism of Action, Clinical Track Record, Open Runway</h2>
-      <p>
-        Preclinical breadth across 12+ disease areas is what you would expect from a multi-mechanistic
-        molecule that operates at the cellular membrane level rather than at a single receptor target.
-        What is rare is that this breadth is paired with extensive human safety data, established
-        manufacturing, a filed IND, and open clinical runway.
-      </p>
-      <p>
-        The highest-value indications — STEMI reperfusion injury, ischemic stroke, and traumatic brain
-        injury — have never been tested in humans. That is the opportunity.
-      </p>
-    </div>
-  </ContentSection>
-
-  <ContentSection>
-    <CardGrid
-      columns={3}
-      items={[
-        {
-          icon: '🔬',
-          title: 'The Science',
-          body: 'A unique core mechanism of action at the cellular membrane — functioning as a prophylactic shield before injury or an acute rescue agent after.',
-          tag: 'Core MoA →',
-          href: '/science/',
-          centered: true
-        },
-        {
-          icon: '📋',
-          title: 'The Evidence',
-          body: 'Published preclinical findings across cardiovascular, neurological, oncology, and radiation injury indications — backed by a Phase III clinical trial record.',
-          tag: 'Indications & Trials →',
-          href: '/preclinical/',
-          centered: true
-        },
-        {
-          icon: '🛡️',
-          title: 'The Protection',
-          body: 'A Composition of Matter patent through 2035, plus a Method of Use patent application filed by MUSC and exclusively licensed to LifeRaft.',
-          tag: 'IP Position →',
-          href: '/ip-protection/',
-          centered: true
-        }
-      ]}
-    />
-  </ContentSection>
-
-
-  <SiteCtaBand
-    title="This Asset Is Available."
-    text="Vepoloxamer is available for outright acquisition, strategic partnership, or indication-specific licensing. Contact us to begin the conversation."
-    primaryHref="/partner/"
-    primaryLabel="Contact Us"
-  />
-
+  <StoryboardContent html={pageHtml} />
   <SiteFooter />
 </BaseLayout>

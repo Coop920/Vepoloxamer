@@ -2,89 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import SiteCtaBand from '../components/SiteCtaBand.astro';
-import ContentSection from '../components/ContentSection.astro';
-import IpLayers from '../components/IpLayers.astro';
-import Timeline from '../components/Timeline.astro';
-
-const layers = [
-  {
-    label: 'Layer 1',
-    title: 'Composition of Matter Patent',
-    body: 'Protects the purified poloxamer molecule itself — the most foundational and defensible form of pharmaceutical IP. Covers the compound regardless of which indication is pursued, and is the floor of the exclusivity story rather than the ceiling.',
-    expiry: 'Expires: 2035'
-  },
-  {
-    label: 'Layer 2',
-    title: 'Method of Use Patent Application — Filed by MUSC, Exclusively Licensed to LifeRaft',
-    body: 'LifeRaft and MUSC generated new preclinical radioprotection data supporting a clinically meaningful new use case. MUSC filed the method-of-use application, and LifeRaft holds the exclusive license to the application and any issuing patents, including sublicense rights.',
-    expiry: 'Filed by MUSC · Exclusively Licensed to LifeRaft · Rights: Exclusive + Sublicense'
-  }
-];
-
-const timeline = [
-  {
-    year: '2026–2027',
-    title: 'Lead Indication Selection & PoC Trial Design',
-    body: 'Leverage the existing IND materials, prior safety data, and retested API work to shape a lean proof-of-concept Phase I/II path. STEMI, stroke, or oral mucositis can each support a different commercial strategy.'
-  },
-  {
-    year: '2027–2029',
-    title: 'Phase I / Phase II Clinical Trials',
-    body: 'The prior safety history across ~4,000 patient exposures de-risks the earliest stage of a new focused clinical program. Several indications may also support expedited or orphan-oriented pathways.'
-  },
-  {
-    year: '2029–2032',
-    title: 'Phase III / Pivotal Trials',
-    body: 'Registration-enabling studies can proceed in the selected lead indication while secondary indications continue to mature as follow-on value drivers.'
-  },
-  {
-    year: '2032–2040+',
-    title: 'Approval, Launch & Extended Exclusivity',
-    body: 'Patents issuing from method-of-use work, data exclusivity, orphan exclusivity where available, and pediatric extensions can extend effective exclusivity well beyond the headline CoM date.',
-    highlight: true
-  }
-];
+import StoryboardContent from '../components/StoryboardContent.astro';
+import pageHtml from '../storyboard/ip-protection.html?raw';
 ---
 <BaseLayout title="Vepoloxamer | IP & Protection">
   <SiteHeader />
-  <section class="page-header-inline compact">
-    <div class="container copy">
-      <div class="page-kicker">IP &amp; Patent Protection</div>
-      <h1 class="page-subtitle">A Well-Constructed, Multi-Jurisdictional Moat</h1>
-      <hr class="page-divider-rule" />
-      <p class="section-intro-strong">The IP position surrounding Vepoloxamer is designed in layers — combining foundational composition-of-matter protection with use-based coverage. Together they create a commercially meaningful moat around a novel, purified asset.</p>
-    </div>
-  </section>
-
-
-  <ContentSection>
-    <IpLayers items={layers} />
-  </ContentSection>
-
-  <ContentSection
-    eyebrow="IP & Patent Protection"
-    subtitle="Understanding the 2035 Timeline — An Opportunity, Not a Constraint"
-    intro="The storyboard treats 2035 as important but manageable because the asset is not beginning from a blank scientific and regulatory slate."
-  >
-    <Timeline items={timeline} />
-  </ContentSection>
-
-  <ContentSection title="Effective Exclusivity Can Extend Well Beyond 2035">
-    <div class="band">
-      <h2 class="section-title">The CoM patent is the floor, not the ceiling.</h2>
-      <p>Patents issuing from method-of-use applications in the US, Europe, and Japan, plus regulatory exclusivity such as 5-year NCE protection, 7-year orphan exclusivity where available, and potential pediatric extensions, mean a strategic acquirer who moves decisively could still capture a long commercial window well into the 2040s.</p>
-    </div>
-  </ContentSection>
-
-  <SiteCtaBand
-    title="Contact Us"
-    text="The purification, the documentation, and the licensed follow-on work are what distinguish Vepoloxamer from off-the-shelf commercial poloxamer material."
-    primaryHref="/partner/"
-    primaryLabel="Contact Us"
-    secondaryHref="/development/"
-    secondaryLabel="See Development Options"
-  />
-
+  <StoryboardContent html={pageHtml} />
   <SiteFooter />
 </BaseLayout>

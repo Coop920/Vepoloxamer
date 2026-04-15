@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
-interface Props { title?: string; description?: string; }
-const { title = 'Vepoloxamer', description = 'Investor and acquirer outreach site for Vepoloxamer.' } = Astro.props;
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -9,9 +11,10 @@ const { title = 'Vepoloxamer', description = 'Investor and acquirer outreach sit
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description} />
   </head>
   <body>
-    <slot />
+    <div class="page-shell">
+      <slot />
+    </div>
   </body>
 </html>
