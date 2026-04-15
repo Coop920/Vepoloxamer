@@ -4,6 +4,7 @@ const withBase = (path) => {
   const clean = path.startsWith('/') ? path.slice(1) : path;
   return `${base}${clean}`;
 };
+const year = new Date().getFullYear();
 ---
 <footer class="footer-main">
   <div class="container footer-main-inner">
@@ -34,8 +35,8 @@ const withBase = (path) => {
 
   <div class="container">
     <div class="footer-legal">
-      © 2026 Liferaft Biosciences. All Rights Reserved. |
-      <a href="https://liferaftbiosciences.com/privacy-policy/">Privacy Policy</a><br />
+      © {year} Liferaft Biosciences. All Rights Reserved. |
+      <a href={withBase('privacy/')}>Privacy Policy</a><br />
       Property of LifeRaft Biosciences, Inc., and its affiliates, including Hirodika Biosciences, Inc.
     </div>
   </div>
