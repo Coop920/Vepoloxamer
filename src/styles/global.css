@@ -309,7 +309,6 @@ a {
 
 
 .page-header {
-  background: var(--warm-white);
   padding: 1.5rem 0 1.25rem;
   border-bottom: 1px solid #e6e0d6;
 }
@@ -328,6 +327,7 @@ a {
 .header-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2.5rem;
   margin-top: 1.75rem;
   flex-wrap: wrap;
