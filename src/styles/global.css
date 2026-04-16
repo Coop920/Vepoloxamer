@@ -43,6 +43,10 @@
   .wf-btn-primary { background: var(--gold); color: white; padding: 12px 28px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; cursor: pointer; }
   .wf-btn-secondary { border: 1px solid rgba(255,255,255,0.4); color: white; padding: 12px 28px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 300; cursor: pointer; }
   .wf-hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+  .wf-hero-stats .wf-stat {flex-basis: 50%; max-width: 50% }
+  @media (min-width: 1024px) {
+    .wf-hero-stats .wf-stat {flex-basis: 25%; max-width: 25% }
+  }
   .wf-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: white; }
   .wf-stat .num sup { font-size: 18px; color: var(--gold); }
   .wf-stat .desc { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; }
