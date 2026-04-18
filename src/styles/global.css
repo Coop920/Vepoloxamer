@@ -40,6 +40,124 @@
   .wf-hero h2 em { font-style: italic; color: var(--ice); }
   .wf-hero p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 480px; margin-bottom: 28px; font-weight: 300; }
   .wf-hero-btns { display: flex; gap: 16px; }
+
+.wf-hero {
+  background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 60%, var(--sapphire) 100%);
+  color: white;
+  padding: 60px 48px;
+  margin: -40px -40px 32px;
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
+}
+
+.wf-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: radial-gradient(circle at 70% 50%, rgba(44,125,196,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.wf-hero-art {
+  position: absolute;
+  right: 36px;
+  top: 34px;
+  width: min(42%, 420px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.wf-hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.wf-hero h2,
+.wf-hero p,
+.wf-hero .wf-hero-btns,
+.wf-hero .wf-hero-stats,
+.wf-hero .wf-footnote-block {
+  position: relative;
+  z-index: 2;
+}
+
+.wf-hero h2 {
+  max-width: 430px;
+}
+
+.wf-hero > p {
+  max-width: 440px;
+}
+
+.wf-hero-btns {
+  max-width: 440px;
+}
+
+.wf-hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  flex-wrap: wrap;
+}
+
+.wf-hero-stats .wf-stat {
+  flex-basis: calc(25% - 30px);
+  max-width: calc(25% - 30px);
+}
+
+.wf-footnote-block {
+  margin-top: 16px;
+  margin-left: auto;
+  width: min(36%, 320px);
+  padding: 12px 0 0 16px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+}
+
+@media (max-width: 960px) {
+  .wf-hero {
+    min-height: auto;
+    padding: 40px 24px;
+  }
+
+  .wf-hero-art {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(100%, 360px);
+    margin: 0 auto 24px;
+  }
+
+  .wf-hero h2,
+  .wf-hero > p,
+  .wf-hero-btns {
+    max-width: none;
+  }
+
+  .wf-hero-stats .wf-stat {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+
+  .wf-footnote-block {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+
+
   .wf-btn-primary { background: var(--gold); color: white; padding: 12px 28px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; cursor: pointer; }
   .wf-btn-secondary { border: 1px solid rgba(255,255,255,0.4); color: white; padding: 12px 28px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 300; cursor: pointer; }
   .wf-hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15); }
@@ -47,38 +165,6 @@
   @media (min-width: 1024px) {
     .wf-hero-stats .wf-stat {flex-basis: 25%; max-width: 25% }
   }
-
-.wf-hero {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.wf-hero-art {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.wf-hero-art img {
-  max-width: 520px;
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 960px) {
-  .wf-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .wf-hero-art {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-}
-  
   .wf-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: white; }
   .wf-stat .num sup { font-size: 18px; color: var(--gold); }
   .wf-stat .desc { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; }
@@ -210,7 +296,7 @@ a {
 .site-logo {
   display: block;
   width: auto;
-  max-width: 430px;
+  max-width: 150px;
   height: auto;
 }
 
