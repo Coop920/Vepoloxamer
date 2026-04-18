@@ -1,20 +1,71 @@
 ---
-interface Stat { value: string; label: string; }
-interface Cta { href: string; label: string; variant?: string; }
-interface Props { eyebrow?: string; title: string; intro: string; primaryCta?: Cta; secondaryCta?: Cta; stats?: Stat[]; footnote?: string; }
-const { eyebrow, title, intro, primaryCta, secondaryCta, stats = [], footnote } = Astro.props;
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface Cta {
+  href: string;
+  label: string;
+  variant?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro: string;
+  primaryCta?: Cta;
+  secondaryCta?: Cta;
+  stats?: Stat[];
+  footnote?: string;
+  heroImageSrc?: string;
+  heroImageAlt?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  intro,
+  primaryCta,
+  secondaryCta,
+  stats = [],
+  footnote,
+  heroImageSrc,
+  heroImageAlt = ''
+} = Astro.props;
 ---
+
 <section class="page-hero">
-  <div class="container">
-    {eyebrow && <div class="eyebrow">{eyebrow}</div>}
-    <h1 class="page-title" set:html={title} />
-    <p class="page-intro">{intro}</p>
-    {(primaryCta || secondaryCta) && (
-      <div class="actions">
-        {primaryCta && <a class={`button ${primaryCta.variant ?? 'primary'}`} href={primaryCta.href}>{primaryCta.label}</a>}
-        {secondaryCta && <a class={`button ${secondaryCta.variant ?? 'secondary'}`} href={secondaryCta.href}>{secondaryCta.label}</a>}
+  <div class="container page-hero-inner">
+    <div class="page-hero-copy">
+      {eyebrow && <div class="eyebrow">{eyebrow}</div>}
+      <h1 class="page-title" set:html={title} />
+      <p class="page-intro">{intro}</p>
+
+      {(primaryCta || secondaryCta) && (
+        <div class="actions">
+          {primaryCta && (
+            <a class={`button ${primaryCta.variant ?? 'primary'}`} href={primaryCta.href}>
+              {primaryCta.label}
+            </a>
+          )}
+          {secondaryCta && (
+            <a class={`button ${secondaryCta.variant ?? 'secondary'}`} href={secondaryCta.href}>
+              {secondaryCta.label}
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+
+    {heroImageSrc && (
+      <div class="page-hero-art">
+        <img class="page-hero-molecule" src={heroImageSrc} alt={heroImageAlt} />
       </div>
     )}
+  </div>
+
+  <div class="container">
     {stats.length > 0 && (
       <div class="stats">
         {stats.map((stat) => (
@@ -25,6 +76,7 @@ const { eyebrow, title, intro, primaryCta, secondaryCta, stats = [], footnote } 
         ))}
       </div>
     )}
+
     {footnote && <div class="footnote">{footnote}</div>}
   </div>
 </section>

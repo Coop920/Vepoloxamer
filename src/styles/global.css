@@ -47,6 +47,38 @@
   @media (min-width: 1024px) {
     .wf-hero-stats .wf-stat {flex-basis: 25%; max-width: 25% }
   }
+
+.wf-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.wf-hero-art {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.wf-hero-art img {
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .wf-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-hero-art {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+  
   .wf-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: white; }
   .wf-stat .num sup { font-size: 18px; color: var(--gold); }
   .wf-stat .desc { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; }
@@ -169,6 +201,31 @@ a {
   color: var(--deep-navy);
   font-weight: 600;
 }
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo {
+  display: block;
+  width: auto;
+  max-width: 430px;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .site-logo {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-logo {
+    max-width: 210px;
+  }
+}
+
 .nav {
   display: flex;
   gap: 1rem;
@@ -409,4 +466,49 @@ a {
 
 .copy p {
   margin-top: 0.75rem;
+}
+
+.page-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.page-hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero-art {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 100%;
+}
+
+.page-hero-molecule {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.28));
+}
+
+@media (max-width: 960px) {
+  .page-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero-art {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .page-hero-molecule {
+    max-width: 420px;
+  }
 }

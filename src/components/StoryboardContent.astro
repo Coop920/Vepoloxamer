@@ -56,6 +56,17 @@ for (const [label, href] of Object.entries(linkMap)) {
     `<a href="${safeHref}" class="wf-btn-secondary">${label}</a>`
   );
 }
+
+// 3) Inject the molecule image into the homepage hero
+if (content.includes('<div class="wf-hero">')) {
+  content = content.replace(
+    '<div class="wf-hero">',
+    `<div class="wf-hero">
+      <div class="wf-hero-art">
+        <img src="${withBase('/images/molecule-graphic.png')}" alt="Molecule illustration" />
+      </div>`
+  );
+}
 ---
 
 <div class="page-content-wrap">
