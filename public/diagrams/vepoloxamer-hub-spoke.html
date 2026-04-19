@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vepoloxamer — Mechanism Hub & Indication Reach</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --deep-navy: #0E1F38;
+    --midnight: #07131F;
+    --sapphire: #1B4F8A;
+    --cerulean: #2E7DC4;
+    --ice: #A8CBE8;
+    --gold: #C9A84C;
+    --gold-light: #E4C97A;
+    --gold-dark: #9A7A2E;
+    --warm-white: #F7F4EF;
+    --cream: #EDE9E1;
+    --muted: #6B7A8D;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--midnight);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  /* ── HEADER ── */
+  .diagram-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .diagram-kicker {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .diagram-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 300;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .diagram-title em {
+    font-style: italic;
+    color: var(--ice);
+  }
+  .diagram-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .legend-swatch {
+    width: 24px;
+    height: 10px;
+    border-radius: 1px;
+  }
+  .legend-swatch.prophylactic { background: var(--gold); }
+  .legend-swatch.acute { background: var(--cerulean); }
+  .legend-note {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  /* ── SVG CONTAINER ── */
+  .diagram-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* ── WEDGE INTERACTIONS ── */
+  .wedge-group {
+    cursor: pointer;
+  }
+  .wedge-path {
+    transition: opacity 0.25s ease, filter 0.25s ease;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  .wedge-group:hover .wedge-path {
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 14px rgba(255,255,255,0.18));
+  }
+  .wedge-group:hover .wedge-path.gold-fill {
+    filter: drop-shadow(0 0 16px rgba(201,168,76,0.5));
+  }
+  .wedge-group:hover .wedge-path.blue-fill {
+    filter: drop-shadow(0 0 16px rgba(46,125,196,0.5));
+  }
+  .diagram-wrap:hover .wedge-path {
+    opacity: 0.55;
+  }
+  .diagram-wrap:hover .wedge-group:hover .wedge-path {
+    opacity: 1;
+  }
+
+  /* ── TOOLTIP ── */
+  .tooltip {
+    position: absolute;
+    background: rgba(7,19,31,0.97);
+    border: 1px solid rgba(201,168,76,0.35);
+    padding: 16px 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    max-width: 240px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip-type {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tooltip-type.gold { color: var(--gold); }
+  .tooltip-type.blue { color: var(--ice); }
+  .tooltip-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .tooltip-tam {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .tooltip-tam strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── FOOTER NOTE ── */
+  .diagram-footer {
+    text-align: center;
+    margin-top: 36px;
+    max-width: 640px;
+  }
+  .diagram-footer p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .diagram-footer p + p { margin-top: 6px; }
+
+</style>
+</head>
+<body>
+
+<div class="diagram-header">
+  <div class="diagram-kicker">Page 2 — The Science</div>
+  <div class="diagram-title">One Mechanism.<br><em>Broad Therapeutic Reach.</em></div>
+  <div class="diagram-subtitle">Vepoloxamer's five characterized mechanisms — membrane protection, free radical scavenging, anti-inflammatory signaling, intracellular engagement, and NO-mediated cardioprotection — operate at the cellular level, giving it biological relevance across twelve or more documented disease contexts.</div>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch prophylactic"></div>
+    <span>Prophylactic / Preventive</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch acute"></div>
+    <span>Acute / Rescue</span>
+  </div>
+</div>
+<div class="legend-note">Wedge size proportional to US Total Addressable Market</div>
+
+<div class="diagram-wrap" id="diagramWrap">
+  <svg viewBox="-380 -380 760 760" id="hubSpoke" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Center hub radial gradient -->
+      <radialGradient id="hubGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1B4F8A"/>
+        <stop offset="100%" stop-color="#07131F"/>
+      </radialGradient>
+      <!-- Gold ring gradient -->
+      <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="70%" stop-color="transparent"/>
+        <stop offset="100%" stop-color="rgba(201,168,76,0.15)"/>
+      </radialGradient>
+      <!-- Glow filter -->
+      <filter id="hubGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <!-- subtle inner shadow ring -->
+      <filter id="innerGlow">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+        <feOffset dx="0" dy="0"/>
+        <feComposite in2="SourceGraphic"/>
+      </filter>
+    </defs>
+
+    <!-- ── BACKGROUND RINGS (depth / atmosphere) ── -->
+    <circle cx="0" cy="0" r="340" fill="none" stroke="rgba(168,203,232,0.04)" stroke-width="1"/>
+    <circle cx="0" cy="0" r="280" fill="none" stroke="rgba(168,203,232,0.05)" stroke-width="1"/>
+    <circle cx="0" cy="0" r="200" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="1" stroke-dasharray="4 6"/>
+    <circle cx="0" cy="0" r="130" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+
+    <!-- ── WEDGES ── will be injected by JS ── -->
+    <g id="wedges"></g>
+
+    <!-- ── SPOKE LINES ── will be injected by JS ── -->
+    <g id="spokes"></g>
+
+    <!-- ── CENTER HUB ── -->
+    <circle cx="0" cy="0" r="88" fill="url(#hubGrad)" filter="url(#hubGlow)"/>
+    <circle cx="0" cy="0" r="88" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Hub text -->
+    <text x="0" y="-30" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" font-weight="300" fill="rgba(168,203,232,0.7)" letter-spacing="2">FIVE MECHANISMS</text>
+    <text x="0" y="-12" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-weight="400" fill="white">Membrane</text>
+    <text x="0" y="6" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-weight="400" fill="white">Protection</text>
+    <text x="0" y="24" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(201,168,76,0.8)" letter-spacing="1.5">+ FREE RADICAL SCAVENGING</text>
+    <text x="0" y="36" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(201,168,76,0.8)" letter-spacing="1.5">+ ANTI-INFLAMMATORY</text>
+    <text x="0" y="48" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(168,203,232,0.7)" letter-spacing="1.5">+ INTRACELLULAR ENGAGEMENT</text>
+    <text x="0" y="60" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="rgba(168,203,232,0.7)" letter-spacing="1.5">+ NO-MEDIATED CARDIOPROTECTION</text>
+
+  </svg>
+
+  <div class="tooltip" id="tooltip"></div>
+</div>
+
+<div class="diagram-footer">
+  <p>TAM figures represent estimated annual US patient populations or annual incident cases. Sources: AHA Heart Disease & Stroke Statistics 2024; CDC Stroke Facts; CDC Sickle Cell Disease Data; NCI/AACR Head & Neck Cancer Overview 2025; CDC TBI Data; CDC Muscular Dystrophy Surveillance; American Burn Association Annual Burn Injury Summary Report 2022; NSCISC Annual Statistical Report (spinal cord injury); CDC WISQARS (trauma mortality); Zhang et al. Shock 2009 (PubMed 19197229); Burns et al. Resuscitation 2011 (PubMed 21733612); Borgens et al. J Neurosci Res 2004 (PubMed 15048938); Sabbah et al. Cardiovasc Drugs Ther 2020 (PMID 32146638); Chen et al. Sci Rep 2025 (PMID 40307302).</p>
+  <p>Wedge angles and sizes are proportional representations for illustrative purposes. Prophylactic indications (gold) are those where Vepoloxamer would be administered prior to the injurious event. Acute/rescue indications (blue) are those where administration follows the onset of injury.</p>
+</div>
+
+<script>
+  // ── INDICATION DATA ──────────────────────────────────────────────────────────
+  // type: 'prophylactic' (gold) | 'acute' (blue)
+  // tam: US annual patients/cases (thousands) — used to size wedge arc
+  // tamLabel: display string
+  // tamSource: short attribution
+
+  const indications = [
+    {
+      name: "STEMI /\nReperfusion\nInjury",
+      nameLines: ["STEMI /", "Reperfusion", "Injury"],
+      type: "acute",
+      tam: 800,
+      tamLabel: "~800,000 MIs/yr (US)",
+      tamSource: "AHA Heart Disease & Stroke Statistics 2024",
+      detail: "Standard-of-care treatment (PCI/thrombolytics) itself causes the second, often larger injury — reperfusion-induced oxidative damage to viable cardiac tissue. There is no approved pharmacological intervention for this. Vepoloxamer administered intracoronary at reperfusion seals cardiomyocyte membranes before the oxidative burst propagates. A 2025 study (Scientific Reports / Nature) discovered that P188 cardioprotection is also mediated through increased endothelial nitric oxide production — a mechanism beyond membrane sealing. Dose-dependent cardiomyocyte protection confirmed at reoxygenation.",
+    },
+    {
+      name: "Ischemic\nStroke",
+      nameLines: ["Ischemic", "Stroke"],
+      type: "acute",
+      tam: 690,
+      tamLabel: "~800,000 strokes/yr (US, ~87% ischemic)",
+      tamSource: "CDC Stroke Facts / AHA 2023",
+      detail: "tPA is the only approved acute therapy for ischemic stroke — but it carries significant hemorrhagic risk and a narrow 4.5-hour therapeutic window. Preclinical data suggest Vepoloxamer, as an adjunct to tPA, can accelerate thrombolysis, reduce infarct volume, and attenuate tPA's own microvascular side effects. A combination strategy that extends tPA's utility — a lower regulatory and commercial hurdle than standalone approval.",
+    },
+    {
+      name: "Radiation-\nInduced\nMucositis",
+      nameLines: ["Radiation-", "Induced", "Mucositis"],
+      type: "prophylactic",
+      tam: 72,
+      tamLabel: "~72,680 new H&N cancer cases/yr (US)",
+      tamSource: "NCI / AACR 2025",
+      detail: "No FDA-approved drug exists for severe oral mucositis in head and neck radiotherapy (palifermin approval covers HSCT only). Prophylactic window: Vepoloxamer on board prior to radiation shields mucosal cells from the oxidative cascade of ionizing radiation. Significant unmet need with a well-defined patient population and clear clinical endpoint.",
+    },
+    {
+      name: "Sickle Cell\nDisease",
+      nameLines: ["Sickle Cell", "Disease"],
+      type: "acute",
+      tam: 100,
+      tamLabel: "~100,000 US patients",
+      tamSource: "CDC / NHLBI",
+      detail: "Existing therapies address symptoms, not root membrane fragility. Orphan Drug Designation pathway (7-year exclusivity + priority review + fee waivers). Acute rescue window: membrane stabilization of sickled RBCs during vaso-occlusive crisis. Supported by direct pharmacodynamic data — reduction in RBC adhesion to VCAM-1 up to 79% at 1mg/mL (p<0.001) and significant reduction in shear-induced hemolysis.",
+    },
+    {
+      name: "Traumatic\nBrain\nInjury",
+      nameLines: ["Traumatic", "Brain", "Injury"],
+      type: "acute",
+      tam: 224,
+      tamLabel: "2.5M+ TBIs/yr (US); ~224K hospitalizations",
+      tamSource: "CDC TBI Data",
+      detail: "No FDA-approved neuroprotective drug for acute TBI. Acute rescue window: within hours post-injury, Vepoloxamer attenuates blood-brain barrier disruption, microthrombosis, and astrocyte activation. A 2024 dose-response study established 300 mg/kg IV as the optimal dose (more effective than 600 mg/kg) with a therapeutic window extending to 3+ days post-TBI. In 2025, P188 was demonstrated for the first time to cross the blood-brain barrier in vivo and to be actively transported into damaged brain endothelial cells via endocytosis.",
+    },
+    {
+      name: "Muscular\nDystrophy\n(DMD)",
+      nameLines: ["Muscular", "Dystrophy", "(DMD)"],
+      type: "prophylactic",
+      tam: 15,
+      tamLabel: "~1 in 3,500 male births; ~10–15K US patients",
+      tamSource: "CDC MD STARnet",
+      detail: "Cardiac involvement (cardiomyopathy) is a primary cause of death in DMD. Orphan drug pathway available. Prophylactic/chronic window: seals leaky dystrophic sarcolemmal membranes, reducing calcium influx and contraction-induced cardiac dysfunction. Note: preclinical data most consistent for the cardiac complication; skeletal muscle data are mixed and should be reviewed carefully.",
+    },
+    {
+      name: "Systemic\nRadio-\nprotection",
+      nameLines: ["Systemic", "Radio-", "protection"],
+      type: "prophylactic",
+      tam: 0,
+      tamLabel: "Government / Defense market",
+      tamSource: "BARDA / NIAID RNCP programs",
+      detail: "Published preclinical evidence: P188 prevents acute necrosis of cells exposed to high-dose ionizing radiation via membrane-stabilization and free radical scavenging (Lee et al. 2004). No FDA-approved radioprotector for pre-exposure use. BARDA's Radiological and Nuclear MCM Program and NIAID's RNCP maintain active funding pipelines. No government funding commitment exists at this time — this is a potential pathway for a strategic acquirer to evaluate.",
+    },
+    {
+      name: "Peripheral\nLimb\nIschemia",
+      nameLines: ["Peripheral", "Limb", "Ischemia"],
+      type: "acute",
+      tam: 175,
+      tamLabel: "~150–200K major amputations/yr · 2–3M CLI patients (US)",
+      tamSource: "Murphy et al. Plast Reconstr Surg 2010; AHA PAD Statistics",
+      detail: "Critical limb ischemia affects an estimated 2–3 million Americans, with ~150,000–200,000 major amputations annually. Revascularization procedures (bypass, angioplasty) restore blood flow but trigger ischemia-reperfusion injury to salvageable muscle — the same mechanism window as STEMI. In a murine hind-limb ischemia model, P188 reduced myocyte injury by 84% vs. controls (p<0.001) and improved 7-day survival. A Phase II study in acute limb ischemia was initiated under the Mast Therapeutics program, which held an FDA Orphan Drug Designation for this indication. Sources: Murphy et al. Plast Reconstr Surg 2010 (PubMed 20517088); Walters et al. J Trauma 2011 (PubMed 21610433).",
+    },
+    {
+      name: "Burn\nInjury",
+      nameLines: ["Burn", "Injury"],
+      type: "acute",
+      tam: 450,
+      tamLabel: "~450K burn patients treated/yr (US) · ~30K hospitalizations",
+      tamSource: "American Burn Association Annual Burn Injury Summary Report 2022",
+      detail: "Burn injury triggers immediate thermal damage to cell membranes followed by a secondary inflammatory cascade causing progressive necrosis of the surrounding 'zone of stasis' — potentially salvageable tissue that dies within 24–48h without intervention. No approved pharmacological agent specifically targets this window. Three independent evidence lines support P188: (1) Baskaran et al. (J Surg Res 2001, PubMed 11676555) — P188 prevented zone-of-stasis formation and reduced coagulation zone area at 24h (p<0.01) in a cutaneous burn model; (2) Yuhua et al. (Burns 2012, PubMed 22079539) — IV P188 attenuated deep second-degree burn wound deepening, preserving Na⁺-K⁺-ATPase and SDH activity, reducing lipid peroxidation (MDA), and delaying neutrophil infiltration (MPO); (3) Mutore et al. (Shock 2024, PubMed 39178216) — PRISMA-compliant systematic review of 33 preclinical studies from UT Southwestern concluded P188 was beneficial across thermal and electrical burn injury models and warrants clinical investigation. Potential non-dilutive funding pathway via DoD/USAMRDC and BARDA (combat trauma, mass-casualty radiological scenarios).",
+    },
+    {
+      name: "Hemorrhagic\nShock",
+      nameLines: ["Hemorrhagic", "Shock"],
+      type: "acute",
+      tam: 185,
+      tamLabel: "~185,000 trauma deaths/yr (US); hemorrhage leading cause",
+      tamSource: "CDC WISQARS / USAISR",
+      detail: "P188 added to resuscitation fluid increased survival from 0% to 75% in 50% volume-controlled hemorrhage (p<0.001), prolonged survivable duration of hypotensive resuscitation by >3 hours, and prevented multi-organ injury. Independently validated by the US Army Institute of Surgical Research in miniature swine. Military relevance and small-volume dosing feasibility make this compelling for field and pre-hospital use. Potential non-dilutive funding via DoD/BARDA.",
+    },
+    {
+      name: "Spinal Cord\nInjury",
+      nameLines: ["Spinal Cord", "Injury"],
+      type: "acute",
+      tam: 18,
+      tamLabel: "~18,000 new SCIs/yr (US)",
+      tamSource: "NSCISC Annual Report",
+      detail: "A single subcutaneous P188 injection 6 hours post-SCI preserved anatomic cord integrity, restored nerve impulse conduction through the lesion, and produced behavioral recovery in guinea pigs. Extended to naturally occurring canine paraplegia with unexpectedly rapid recovery — the most translationally advanced veterinary evidence for P188 in any CNS indication.",
+    },
+    {
+      name: "Heart\nFailure",
+      nameLines: ["Heart", "Failure"],
+      type: "acute",
+      tam: 550,
+      tamLabel: "~6.7M US adults with HF; ~550K new diagnoses/yr",
+      tamSource: "AHA Heart Disease & Stroke Statistics 2024",
+      detail: "In a canine microembolization heart failure model (baseline LVEF ~30%), vepoloxamer at 450 mg/kg improved left ventricular ejection fraction by 11 absolute percentage points within 2 hours, with benefits persisting for one week after a single infusion. A pulsed-therapy paradigm sustained improvement through six weeks. A Phase 2 trial (NCT02596477) enrolled 10 patients before termination for business reasons, not safety. Draft IMPD included in asset transfer.",
+    },
+  ];
+
+  // ── LAYOUT PARAMETERS ────────────────────────────────────────────────────────
+  const CX = 0, CY = 0;
+  const HUB_R = 92;          // hub clearance radius
+  const MIN_R = 155;         // inner edge of wedges
+  const MAX_R = 320;         // max outer radius (largest TAM)
+  const MIN_WEDGE_R = 180;   // minimum wedge outer radius (for very small TAMs)
+  const GAP_DEG = 3.5;       // gap between wedges in degrees
+
+  const GOLD   = "#C9A84C";
+  const GOLD2  = "#E4C97A";
+  const BLUE   = "#2E7DC4";
+  const BLUE2  = "#5AA3E0";
+
+  // Normalize TAM for sizing — government gets a fixed small size
+  const maxTam = Math.max(...indications.map(d => d.tam || 0));
+  const N = indications.length;
+
+  // Total arc = 360 - (N * GAP_DEG)
+  const totalArc = 360 - N * GAP_DEG;
+  // Minimum arc per wedge so tiny TAMs still have readable slices
+  const MIN_ARC = 22;
+
+  // Raw proportional arcs
+  function getTamWeight(d) {
+    return d.tam > 0 ? d.tam : 40; // government/defense gets a fixed representative size
+  }
+  const totalWeight = indications.reduce((s, d) => s + getTamWeight(d), 0);
+
+  // Assign arcs: first pass proportional, then enforce minimum
+  let arcs = indications.map(d => (getTamWeight(d) / totalWeight) * totalArc);
+  // Enforce minimums by borrowing from larger slices
+  let deficit = 0;
+  arcs = arcs.map(a => {
+    if (a < MIN_ARC) { deficit += MIN_ARC - a; return MIN_ARC; }
+    return a;
+  });
+  // Remove deficit proportionally from slices already above minimum
+  const surplus = arcs.reduce((s, a) => s + (a > MIN_ARC ? a - MIN_ARC : 0), 0);
+  arcs = arcs.map(a => a > MIN_ARC ? a - (a - MIN_ARC) * (deficit / surplus) : a);
+
+  // Outer radii proportional to TAM
+  function outerR(d) {
+    if (d.tam === 0) return MIN_WEDGE_R + 30;
+    const t = d.tam / maxTam;
+    return MIN_WEDGE_R + (MAX_R - MIN_WEDGE_R) * Math.sqrt(t);
+  }
+
+  // ── SVG PATH HELPERS ─────────────────────────────────────────────────────────
+  function toRad(deg) { return (deg - 90) * Math.PI / 180; }
+
+  function polarToCart(r, deg) {
+    const a = toRad(deg);
+    return [CX + r * Math.cos(a), CY + r * Math.sin(a)];
+  }
+
+  function wedgePath(startDeg, endDeg, innerR, oR) {
+    const [x1, y1] = polarToCart(innerR, startDeg);
+    const [x2, y2] = polarToCart(oR,    startDeg);
+    const [x3, y3] = polarToCart(oR,    endDeg);
+    const [x4, y4] = polarToCart(innerR, endDeg);
+    const arcSpan  = endDeg - startDeg;
+    const large    = arcSpan > 180 ? 1 : 0;
+    return [
+      `M ${x1} ${y1}`,
+      `L ${x2} ${y2}`,
+      `A ${oR} ${oR} 0 ${large} 1 ${x3} ${y3}`,
+      `L ${x4} ${y4}`,
+      `A ${innerR} ${innerR} 0 ${large} 0 ${x1} ${y1}`,
+      'Z'
+    ].join(' ');
+  }
+
+  // ── RENDER ───────────────────────────────────────────────────────────────────
+  const wedgeGroup = document.getElementById('wedges');
+  const spokeGroup = document.getElementById('spokes');
+  const tooltip    = document.getElementById('tooltip');
+  const wrap       = document.getElementById('diagramWrap');
+  const svg        = document.getElementById('hubSpoke');
+
+  let currentAngle = -10; // start slightly offset from top
+
+  indications.forEach((d, i) => {
+    const arc      = arcs[i];
+    const startDeg = currentAngle + GAP_DEG / 2;
+    const endDeg   = currentAngle + arc;
+    const midDeg   = (startDeg + endDeg) / 2;
+    currentAngle  += arc + GAP_DEG;
+
+    const oR       = outerR(d);
+    const isGold   = d.type === 'prophylactic';
+    const fillCol  = isGold ? GOLD   : BLUE;
+    const fillCol2 = isGold ? GOLD2  : BLUE2;
+    const fillClass= isGold ? 'gold-fill' : 'blue-fill';
+
+    // ── Wedge path
+    const path = document.createElementNS("http://www.w3.org/2000/svg","path");
+    path.setAttribute('d', wedgePath(startDeg, endDeg, MIN_R, oR));
+    path.setAttribute('fill', fillCol);
+    path.setAttribute('fill-opacity', '0.22');
+    path.setAttribute('stroke', fillCol);
+    path.setAttribute('stroke-width', '1');
+    path.setAttribute('stroke-opacity', '0.6');
+    path.classList.add('wedge-path', fillClass);
+
+    // ── Outer arc highlight (slightly brighter outer rim)
+    const arcHighlight = document.createElementNS("http://www.w3.org/2000/svg","path");
+    const [ax1, ay1] = polarToCart(oR - 3, startDeg + 1);
+    const [ax2, ay2] = polarToCart(oR - 3, endDeg   - 1);
+    const arcHL = arc - 2 > 180 ? 1 : 0;
+    arcHighlight.setAttribute('d', `M ${ax1} ${ay1} A ${oR-3} ${oR-3} 0 ${arcHL} 1 ${ax2} ${ay2}`);
+    arcHighlight.setAttribute('fill', 'none');
+    arcHighlight.setAttribute('stroke', fillCol2);
+    arcHighlight.setAttribute('stroke-width', '2');
+    arcHighlight.setAttribute('stroke-opacity', '0.5');
+    arcHighlight.classList.add('wedge-path', fillClass);
+
+    // ── Spoke line
+    const [sx1, sy1] = polarToCart(HUB_R + 4, midDeg);
+    const [sx2, sy2] = polarToCart(MIN_R - 4, midDeg);
+    const spoke = document.createElementNS("http://www.w3.org/2000/svg","line");
+    spoke.setAttribute('x1', sx1); spoke.setAttribute('y1', sy1);
+    spoke.setAttribute('x2', sx2); spoke.setAttribute('y2', sy2);
+    spoke.setAttribute('stroke', fillCol);
+    spoke.setAttribute('stroke-width', '0.75');
+    spoke.setAttribute('stroke-opacity', '0.4');
+    spokeGroup.appendChild(spoke);
+
+    // ── Label positioning
+    const labelR   = oR + 22;
+    const [lx, ly] = polarToCart(labelR, midDeg);
+    const anchor   = lx > 5 ? 'start' : lx < -5 ? 'end' : 'middle';
+    const lxAdj    = lx > 5 ? lx + 2 : lx < -5 ? lx - 2 : lx;
+
+    // TAM sub-label
+    const tamR     = oR + 8;
+    const [tx, ty] = polarToCart(tamR, midDeg);
+
+    // ── Group
+    const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.classList.add('wedge-group');
+    g.dataset.index = i;
+    g.appendChild(path);
+    g.appendChild(arcHighlight);
+
+    // Label lines
+    const lineSpacing = 14;
+    const lineCount   = d.nameLines.length;
+    const lineOffset  = -(lineCount - 1) * lineSpacing / 2;
+
+    d.nameLines.forEach((line, li) => {
+      const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute('x', lxAdj);
+      t.setAttribute('y', ly + lineOffset + li * lineSpacing);
+      t.setAttribute('text-anchor', anchor);
+      t.setAttribute('font-family', 'Cormorant Garamond, serif');
+      t.setAttribute('font-size', '13');
+      t.setAttribute('font-weight', '500');
+      t.setAttribute('fill', 'white');
+      t.setAttribute('fill-opacity', '0.9');
+      t.textContent = line;
+      g.appendChild(t);
+    });
+
+    // TAM micro-label (just the number part)
+    const tamShort = d.tam > 0
+      ? (d.tam >= 1000 ? (d.tam/1000).toFixed(1)+'M' : d.tam+'K')
+      : 'GOV';
+    const tamT = document.createElementNS("http://www.w3.org/2000/svg","text");
+    tamT.setAttribute('x', tx);
+    tamT.setAttribute('y', ty + lineOffset + lineCount * lineSpacing + 4);
+    tamT.setAttribute('text-anchor', anchor === 'start' ? 'start' : anchor === 'end' ? 'end' : 'middle');
+    tamT.setAttribute('font-family', 'DM Sans, sans-serif');
+    tamT.setAttribute('font-size', '9');
+    tamT.setAttribute('fill', fillCol);
+    tamT.setAttribute('fill-opacity', '0.75');
+    tamT.setAttribute('letter-spacing', '1');
+    tamT.textContent = tamShort + ' US TAM';
+    g.appendChild(tamT);
+
+    // Dot at spoke tip
+    const [dotX, dotY] = polarToCart(MIN_R - 1, midDeg);
+    const dot = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    dot.setAttribute('cx', dotX); dot.setAttribute('cy', dotY);
+    dot.setAttribute('r', '2.5');
+    dot.setAttribute('fill', fillCol);
+    dot.setAttribute('fill-opacity', '0.8');
+    g.appendChild(dot);
+
+    wedgeGroup.appendChild(g);
+
+    // ── Tooltip interaction
+    g.addEventListener('mouseenter', (e) => showTooltip(e, d, isGold));
+    g.addEventListener('mousemove',  (e) => moveTooltip(e));
+    g.addEventListener('mouseleave', hideTooltip);
+  });
+
+  function showTooltip(e, d, isGold) {
+    const typeLabel = isGold ? 'Prophylactic' : 'Acute / Rescue';
+    const typeClass = isGold ? 'gold' : 'blue';
+    tooltip.innerHTML = `
+      <div class="tooltip-type ${typeClass}">${typeLabel}</div>
+      <div class="tooltip-name">${d.nameLines.join(' ')}</div>
+      <div class="tooltip-tam">
+        <strong>${d.tamLabel}</strong>
+        ${d.detail}
+        <span style="display:block; margin-top:8px; font-size:9px; color:rgba(255,255,255,0.3); letter-spacing:1px; text-transform:uppercase;">Source: ${d.tamSource}</span>
+      </div>
+    `;
+    tooltip.classList.add('visible');
+    moveTooltip(e);
+  }
+
+  function moveTooltip(e) {
+    const rect = wrap.getBoundingClientRect();
+    let x = e.clientX - rect.left + 16;
+    let y = e.clientY - rect.top  - 40;
+    const tw = 240, th = 160;
+    if (x + tw > rect.width)  x = e.clientX - rect.left - tw - 16;
+    if (y + th > rect.height) y = e.clientY - rect.top  - th - 10;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+  }
+</script>
+</body>
+</html>
