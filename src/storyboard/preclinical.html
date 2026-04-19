@@ -132,18 +132,6 @@
 
     if (!sections.length) return;
 
-    const setActive = (id) => {
-      sections.forEach(({ link }) => {
-        const isActive = link.getAttribute('href') === id;
-        link.classList.toggle('is-active', isActive);
-        if (isActive) {
-          link.setAttribute('aria-current', 'true');
-        } else {
-          link.removeAttribute('aria-current');
-        }
-      });
-    };
-
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
