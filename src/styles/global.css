@@ -459,21 +459,16 @@ a {
 .site-logo {
   display: block;
   width: auto;
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
 }
 
 @media (max-width: 960px) {
   .site-logo {
-    max-width: 260px;
+    max-width: 150px;
   }
 }
 
-@media (max-width: 640px) {
-  .site-logo {
-    max-width: 210px;
-  }
-}
 
 .nav {
   display: flex;
@@ -619,8 +614,13 @@ a {
 
 
 .page-header {
-  padding: 1.5rem 0 1.25rem;
+  padding: 0 0 1.25rem;
   border-bottom: 1px solid #e6e0d6;
+}
+@media (max-width: 640px) {
+  .page-header {
+    padding: 0;
+  }
 }
 
 .header-top {
@@ -639,7 +639,6 @@ a {
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  margin-top: 1.75rem;
   flex-wrap: wrap;
 }
 
