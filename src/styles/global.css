@@ -323,7 +323,7 @@ html {
   .wf-card a.pub-link { display: block; font-size: 11px; color: var(--cerulean); margin-top: 10px; text-decoration: none; }
   .wf-dark-band { background: var(--deep-navy); color: white; padding: 40px; margin: 32px -40px; }
   .wf-dark-band h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; margin-bottom: 16px; }
-  .wf-dark-band p { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 680px; margin: 0 auto;}
+  .wf-dark-band p { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; /*max-width: 680px;*/ margin: 0 auto;}
   .wf-timeline { position: relative; padding-left: 32px; border-left: 2px solid var(--ice); margin: 24px 0; }
   .wf-timeline-item { margin-bottom: 28px; position: relative; }
   .wf-timeline-item::before { content: ''; position: absolute; left: -39px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--cerulean); }
