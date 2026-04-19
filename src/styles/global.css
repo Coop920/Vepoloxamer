@@ -321,7 +321,7 @@ html {
   .wf-card a.pub-link { display: block; font-size: 11px; color: var(--cerulean); margin-top: 10px; text-decoration: none; }
   .wf-dark-band { background: var(--deep-navy); color: white; padding: 40px; margin: 32px -40px; }
   .wf-dark-band h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; margin-bottom: 16px; }
-  .wf-dark-band p { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 680px; }
+  .wf-dark-band p { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 680px; margin: 0 auto;}
   .wf-timeline { position: relative; padding-left: 32px; border-left: 2px solid var(--ice); margin: 24px 0; }
   .wf-timeline-item { margin-bottom: 28px; position: relative; }
   .wf-timeline-item::before { content: ''; position: absolute; left: -39px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--cerulean); }
@@ -771,4 +771,58 @@ a {
   height: 800px;
   border: 0;
   display: block;
+}
+
+.wf-form {
+  margin-top: 24px;
+}
+
+.wf-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.wf-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-field--full {
+  grid-column: 1 / -1;
+}
+
+.wf-field label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.wf-field input,
+.wf-field select,
+.wf-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d0ccc4;
+  background: white;
+  color: var(--deep-navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+}
+
+.wf-field textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+@media (max-width: 768px) {
+  .wf-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-field--full {
+    grid-column: auto;
+  }
 }

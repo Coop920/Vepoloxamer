@@ -7,25 +7,70 @@
 <div class="wf-btn-secondary">Learn About the Asset</div>
 </div>
 </div><div class="wf-grid-3">
-<div class="wf-card" style="border-top:3px solid var(--gold); text-align:center;">
-<div class="card-icon">🏢</div><h4>Acquisition</h4>
+<div class="wf-card" style="border-top:3px solid var(--gold);">
+<div class="card-icon">🏢</div><h4 style="left-align: center;">Acquisition</h4>
 <p>Full asset transfer — CoM patent (US 9,403,941, 2035), MUSC Method of Use patent application (and any patents issuing therefrom) exclusively licensed to LifeRaft, one filed IND (EPIC) and a draft IMPD (Heart Failure; drafted but not submitted), clinical datasets from prior programs, manufacturing process documentation, formulation know-how, and all associated IP. Ideal for pharma seeking to establish or expand a pipeline.</p>
 <div class="wf-tag" style="margin-top:16px;">Full Asset Transfer</div>
 </div>
-<div class="wf-card" style="border-top:3px solid var(--cerulean); text-align:center;">
-<div class="card-icon">💼</div><h4>Investment / Co-Development</h4>
+<div class="wf-card" style="border-top:3px solid var(--cerulean);">
+<div class="card-icon">💼</div><h4 style="left-align: center;">Investment / Co-Development</h4>
 <p>Investment to fund proof-of-concept Phase I/II in a collaborative structure. Ideal for investors seeking clinical-stage entry with de-risked safety profile, the existing IND, and an established manufacturing process ready for CDMO reestablishment.</p>
 <div class="wf-tag" style="margin-top:16px;">PoC Co-Development</div>
 </div>
-<div class="wf-card" style="border-top:3px solid var(--ice); text-align:center;">
-<div class="card-icon">📄</div><h4>Indication Licensing</h4>
+<div class="wf-card" style="border-top:3px solid var(--ice);">
+<div class="card-icon">📄</div><h4 style="left-align: center;">Indication Licensing</h4>
 <p>Exclusive or co-exclusive license for specific therapeutic indications. Ideal for companies with existing therapeutic area infrastructure, clinical capabilities, and manufacturing resources.</p>
 <div class="wf-tag" style="margin-top:16px;">Indication-Specific Rights</div>
 </div>
 </div><div class="wf-block" style="margin-top:40px; text-align:center;">
 <h3>Contact</h3>
-<p>LifeRaft Biosciences, Inc.<br/><strong><a class="__cf_email__" data-cfemail="61080f070e210d0807041300071503080e120208040f0204124f020e0c" href="/cdn-cgi/l/email-protection">[email protected]</a></strong></p>
-<div class="annotation" style="text-align:left; margin-top:24px;">↳ DESIGN: Simple contact form — Name, Company, Role, Type of Interest (Acquire / Invest / License / Other), Message. Calendly link for "Schedule a Discussion." Goal is first conversation, not immediate NDA. Keep friction minimal.</div>
+<p>LifeRaft Biosciences, Inc.</p>
+
+<form class="wf-form" name="partner-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="partner-contact" />
+  <p hidden>
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <div class="wf-form-grid">
+    <div class="wf-field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="wf-field">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" required />
+    </div>
+
+    <div class="wf-field">
+      <label for="role">Role</label>
+      <input type="text" id="role" name="role" />
+    </div>
+
+    <div class="wf-field">
+      <label for="interest_type">Type of Interest</label>
+      <select id="interest_type" name="interest_type" required>
+        <option value="">Select one</option>
+        <option value="Acquire">Acquire</option>
+        <option value="Invest">Invest</option>
+        <option value="License">License</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="wf-field wf-field--full">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;">
+    <button type="submit" class="wf-btn-primary">Submit</button>
+  </div>
+</form>
+
+
 </div><div class="wf-dark-band" style="text-align:center; margin-bottom:-40px;">
 <h3>Confidential Information &amp; NDAs</h3>
 <p>A full scientific and clinical data package — including IND documentation, clinical trial datasets, API characterization data, and formulation files — will be made available to qualified parties under a mutual NDA. Contact us to begin the formal process.</p>
