@@ -318,7 +318,7 @@ html {
   .wf-card .card-icon { font-size: 24px; margin-bottom: 12px; }
   .wf-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--deep-navy); margin-bottom: 6px; font-weight: 500; }
   .wf-card p { font-size: 13px; color: var(--muted); font-weight: 300; }
-  .wf-card .wf-tag { display: inline-block; background: var(--deep-navy); color: var(--ice); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; margin-top: 12px; }
+  .wf-card .wf-tag { display: inline-block; background: var(--deep-navy); color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; margin-top: 12px; }
   .wf-card .wf-tag.featured-tag { background: var(--cerulean); }
   .wf-card a.pub-link { display: block; font-size: 11px; color: var(--cerulean); margin-top: 10px; text-decoration: none; }
   .wf-dark-band { background: var(--deep-navy); color: white; padding: 40px; margin: 32px -40px; }
