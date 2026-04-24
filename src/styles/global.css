@@ -302,7 +302,8 @@ html {
     .wf-hero-stats .wf-stat {flex-basis: 25%; max-width: 25% }
   }
   .wf-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: white; }
-  .wf-stat .num sup { font-size: 18px; color: var(--gold); }
+  .wf-stat .num sup,
+  span.gold { font-size: 18px; color: var(--gold); }
   .wf-stat .desc { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; }
   .wf-footnote-block { margin: 16px 0 0; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 11px; color: rgba(255,255,255,0.45); font-style: italic; }
   .wf-block { margin-bottom: 32px; }
@@ -541,6 +542,14 @@ a {
   color: var(--deep-navy);
   line-height: 1;
 }
+
+.footer-tagline {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #cbbfa6; /* matches beige tone */
+  line-height: 1.4;
+}
+
 .footer-col-title {
   font-size: 0.7rem;
   letter-spacing: 0.18rem;

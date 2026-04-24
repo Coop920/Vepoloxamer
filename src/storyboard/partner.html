@@ -34,38 +34,50 @@
     <label>Don’t fill this out: <input name="bot-field" /></label>
   </p>
 
-  <div class="wf-form-grid">
-    <div class="wf-field">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-    </div>
+	<div class="wf-form-grid">
+	  <div class="wf-field">
+	    <label for="name">Name</label>
+	    <input type="text" id="name" name="name" required />
+	  </div>
 
-    <div class="wf-field">
-      <label for="company">Company</label>
-      <input type="text" id="company" name="company" required />
-    </div>
+	  <div class="wf-field">
+	    <label for="company">Company</label>
+	    <input type="text" id="company" name="company" required />
+	  </div>
 
-    <div class="wf-field">
-      <label for="role">Role</label>
-      <input type="text" id="role" name="role" />
-    </div>
+	  <!-- NEW -->
+	  <div class="wf-field">
+	    <label for="email">Email</label>
+	    <input type="email" id="email" name="email" required />
+	  </div>
 
-    <div class="wf-field">
-      <label for="interest_type">Type of Interest</label>
-      <select id="interest_type" name="interest_type" required>
-        <option value="">Select one</option>
-        <option value="Acquire">Acquire</option>
-        <option value="Invest">Invest</option>
-        <option value="License">License</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
+	  <!-- NEW -->
+	  <div class="wf-field">
+	    <label for="phone">Phone Number</label>
+	    <input type="tel" id="phone" name="phone" />
+	  </div>
 
-    <div class="wf-field wf-field--full">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="6" required></textarea>
-    </div>
-  </div>
+	  <div class="wf-field">
+	    <label for="role">Role</label>
+	    <input type="text" id="role" name="role" />
+	  </div>
+
+	  <div class="wf-field">
+	    <label for="interest_type">Type of Interest</label>
+	    <select id="interest_type" name="interest_type" required>
+	      <option value="">Select one</option>
+	      <option value="Acquire">Acquire</option>
+	      <option value="Invest">Invest</option>
+	      <option value="License">License</option>
+	      <option value="Other">Other</option>
+	    </select>
+	  </div>
+
+	  <div class="wf-field wf-field--full">
+	    <label for="message">Message</label>
+	    <textarea id="message" name="message" rows="6" required></textarea>
+	  </div>
+	</div>
 
   <div style="margin-top:20px;">
     <button type="submit" class="wf-btn-primary">Submit</button>
