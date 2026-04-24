@@ -546,7 +546,7 @@ a {
 .footer-tagline {
   margin-top: 6px;
   font-size: 12px;
-  color: #cbbfa6; /* matches beige tone */
+  color: var(--deep-navy);
   line-height: 1.4;
 }
 
