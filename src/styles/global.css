@@ -207,10 +207,10 @@ a { text-decoration: none; }
 .page-header { background: #fff; border-bottom: 1px solid #e6e0d6; position: sticky; top: 0; z-index: 50; padding: 1.35rem 0 1.1rem; }
 .header-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
 .logo-link { display:inline-flex; align-items:center; }
-.site-logo { display:block; width:auto; max-width:150px; height:auto; }
+.site-logo { display:block; width:auto; max-width:200px; height:auto; }
 .header-cta { white-space:nowrap; }
 .header-nav { display:flex; align-items:center; justify-content:center; gap:2.5rem; margin-top:1.5rem; flex-wrap:wrap; }
-.header-nav a { color:#7d8797; font-size:.95rem; font-weight:500; }
+.header-nav a { color:var(--gold); font-size:1rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
 .header-nav a:hover { color:var(--deep-navy); }
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:2.75rem; padding:.75rem 1.25rem; letter-spacing:.06rem; text-transform:uppercase; font-size:.82rem; border:1px solid transparent; cursor:pointer; }
 .button.primary { background:var(--gold); color:#fff; }
@@ -225,9 +225,9 @@ a { text-decoration: none; }
 .page-intro > p { font-size:16px !important; line-height:1.7; max-width:1050px; }
 
 /* Inline section jump menus */
-.page-jump-nav { display:flex; flex-wrap:wrap; align-items:center; gap:0; margin:0 0 36px; padding:14px 0; border-top:1px solid #ddd7cd; border-bottom:1px solid #ddd7cd; }
+.page-jump-nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:0; margin:0 0 36px; padding:14px 0; border-top:1px solid #ddd7cd; border-bottom:1px solid #ddd7cd; }
 .page-jump-nav a { color:var(--deep-navy); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:4px 16px; border-right:1px solid #d9d2c7; }
-.page-jump-nav a:first-child { padding-left:0; }
+.page-jump-nav a:first-child { padding-left:16px; }
 .page-jump-nav a:last-child { border-right:0; }
 .page-jump-nav a:hover { color:var(--cerulean); }
 #mechanisms, #clinical-windows, #why-lead-program, #what-som-does, #why-vepoloxamer-fits, #phase-3-trials, #path-to-liferaft, #commercial-exclusivity, #scientific-advisory-board, #board-of-directors { scroll-margin-top:190px; }
@@ -325,3 +325,13 @@ a { text-decoration: none; }
   .wf-field--full { grid-column:auto; }
   .pub-controls { margin-left:-24px; margin-right:-24px; padding:20px 24px; }
 }
+
+/* v22 review updates */
+.footer-logo-wrap { display:flex; align-items:flex-start; }
+.footer-logo { display:block; width:auto; max-width:220px; height:auto; }
+.science-flowchart { display:flex; justify-content:center; margin:32px auto 48px; }
+.science-flowchart img { display:block; width:min(100%, 760px); height:auto; }
+.lead-program-image-wrap { flex:0 0 280px; order:2; margin-left:auto; }
+.lead-program-image { display:block; width:280px; height:240px; object-fit:cover; object-position:center; border-radius:4px; }
+@media (max-width:960px) { .footer-logo { max-width:200px; } .lead-program-image-wrap { flex:1 1 100%; margin-left:0; } .lead-program-image { width:100%; max-width:420px; height:auto; margin:0 auto; } }
+@media (max-width:640px) { .page-jump-nav { text-align:center; } .page-jump-nav a { text-align:center; } }

@@ -8,10 +8,10 @@ const year = new Date().getFullYear();
 ---
 <footer class="footer-main">
   <div class="container footer-main-inner">
-    <div>
-      <div class="footer-col-title">Asset Site</div>
-      <div class="footer-brand">Vepoloxamer</div>
-      <div class="footer-tagline">The only purified pharmaceutical-grade<br />poloxamer-188</div>
+    <div class="footer-logo-wrap">
+      <a href={withBase('/')} aria-label="LifeRaft Biosciences home">
+        <img class="footer-logo" src={withBase('images/liferaft-biosciences-logo-new.png')} alt="LifeRaft Biosciences" />
+      </a>
     </div>
     <div>
       <div class="footer-col-title">Explore</div>
@@ -26,7 +26,7 @@ const year = new Date().getFullYear();
     </div>
     <div class="footer-actions">
       <div class="footer-col-title">Connect</div>
-      <a class="button primary" href="mailto:info@liferaftbiosciences.com">Schedule a Discussion</a>
+      <a class="button primary" href="mailto:info@liferaftbiosciences.com">Investor Inquiries</a>
     </div>
   </div>
   <div class="container">
