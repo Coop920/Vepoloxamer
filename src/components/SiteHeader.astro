@@ -1,17 +1,17 @@
 ---
 const base = import.meta.env.BASE_URL;
-
 const withBase = (path: string) => {
   const clean = path.startsWith('/') ? path.slice(1) : path;
   return `${base}${clean}`;
 };
 
 const links = [
-  { href: 'science/', label: 'The Science' },
-  { href: 'preclinical/', label: 'Preclinical Evidence' },
-  { href: 'clinical-history/', label: 'Clinical History' },
-  { href: 'ip-protection/', label: 'IP & Patent Protection' },
-  { href: 'development/', label: 'Development Path' }
+  { href: 'science/', label: 'Science' },
+  { href: 'pipeline/', label: 'Pipeline' },
+  { href: 'foundation/', label: 'Foundation' },
+  { href: 'publications/', label: 'Publications' },
+  { href: 'team/', label: 'Team' },
+  { href: 'contact/', label: 'Contact' }
 ];
 ---
 
@@ -19,34 +19,20 @@ const links = [
   <div class="container">
     <div class="header-top">
       <a class="logo-link" href={withBase('/')}>
-        <img
-          class="site-logo"
-          src={withBase('images/liferaft-biosciences-logo-new.png')}
-          alt="LifeRaft Biosciences"
-        />
+        <img class="site-logo" src={withBase('images/liferaft-biosciences-logo-new.png')} alt="LifeRaft Biosciences" />
       </a>
 
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-        aria-label="Toggle navigation"
-      >
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
       </button>
 
-      <a class="button primary header-cta" href={withBase('partner/')}>
-        Schedule a Discussion
-      </a>
+      <a class="button primary header-cta" href="mailto:info@liferaftbiosciences.com">Schedule a Discussion</a>
     </div>
 
     <nav id="primary-nav" class="nav header-nav" aria-label="Primary">
-      {links.map((link) => (
-        <a href={withBase(link.href)}>{link.label}</a>
-      ))}
+      {links.map((link) => <a href={withBase(link.href)}>{link.label}</a>)}
     </nav>
   </div>
 </header>
@@ -54,13 +40,11 @@ const links = [
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('#primary-nav');
-
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(isOpen));
     });
-
     nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         nav.classList.remove('is-open');

@@ -1,1 +1,1 @@
-All pages reviewed and aligned to storyboard with full content fidelity.
+v22 content has been extracted from each of the seven storyboard website-content wireframes and applied to the Astro build. COPY NOTE and DESIGN NOTE annotations remain visible. Production presentation and functionality are layered on top without rewriting storyboard copy.

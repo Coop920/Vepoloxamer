@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import StoryboardContent from '../components/StoryboardContent.astro';
+import pageHtml from '../storyboard/publications.html?raw';
+---
+<BaseLayout title="Publications | LifeRaft Biosciences">
+  <SiteHeader />
+  <StoryboardContent html={pageHtml} />
+  <script>
+    (() => {
+      const state = { ind: 'all', mat: 'all' };
+      const rows = Array.from(document.querySelectorAll('.pub-row'));
+      const countEl = document.getElementById('pub-count');
+      if (!rows.length) return;
+      const apply = () => {
+        let shown = 0;
+        rows.forEach((row) => {
+          const ok = (state.ind === 'all' || row.dataset.ind === state.ind) &&
+                     (state.mat === 'all' || row.dataset.mat === state.mat);
+          row.style.display = ok ? '' : 'none';
+          if (ok) shown++;
+        });
+        if (countEl) countEl.innerHTML = `<strong>${shown}</strong> of ${rows.length} publications shown`;
+      };
+      document.querySelectorAll('.pub-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          if (!filter) return;
+          state[filter] = btn.dataset.value || 'all';
+          document.querySelectorAll(`.pub-filter-btn[data-filter="${filter}"]`).forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          apply();
+        });
+      });
+      apply();
+    })();
+  </script>
+  <SiteFooter />
+</BaseLayout>

@@ -1,6 +1,6 @@
 ---
 const base = import.meta.env.BASE_URL;
-const withBase = (path) => {
+const withBase = (path: string) => {
   const clean = path.startsWith('/') ? path.slice(1) : path;
   return `${base}${clean}`;
 };
@@ -11,28 +11,24 @@ const year = new Date().getFullYear();
     <div>
       <div class="footer-col-title">Asset Site</div>
       <div class="footer-brand">Vepoloxamer</div>
-      <div class="footer-tagline">The only purified pharmaceutical-grade<br> poloxamer-188</div>
+      <div class="footer-tagline">The only purified pharmaceutical-grade<br />poloxamer-188</div>
     </div>
-
     <div>
       <div class="footer-col-title">Explore</div>
       <nav class="footer-links two-col" aria-label="Footer">
-        <a href={withBase('science/')}>The Science</a>
-        <a href={withBase('development/')}>Development Path</a>
-        <a href={withBase('preclinical/')}>Preclinical Evidence</a>
-        <a href={withBase('about-liferaft/')}>About LifeRaft Biosciences</a>
-        <a href={withBase('clinical-history/')}>Clinical History</a>
-        <a href={withBase('partner/')}>Partnership Opportunities</a>
-        <a href={withBase('ip-protection/')}>IP & Patent Protection</a>
+        <a href={withBase('science/')}>Science</a>
+        <a href={withBase('pipeline/')}>Pipeline</a>
+        <a href={withBase('foundation/')}>Foundation</a>
+        <a href={withBase('publications/')}>Publications</a>
+        <a href={withBase('team/')}>Team</a>
+        <a href={withBase('contact/')}>Contact</a>
       </nav>
     </div>
-
     <div class="footer-actions">
       <div class="footer-col-title">Connect</div>
       <a class="button primary" href="mailto:info@liferaftbiosciences.com">Schedule a Discussion</a>
     </div>
   </div>
-
   <div class="container">
     <div class="footer-legal">
       © {year} Liferaft Biosciences. All Rights Reserved. |

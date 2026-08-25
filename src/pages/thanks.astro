@@ -1,20 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
-import FooterStrip from '../components/FooterStrip.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (path: string) => `${base}${path.startsWith('/') ? path.slice(1) : path}`;
 ---
-<BaseLayout title="Vepoloxamer | Thank You">
+<BaseLayout title="LifeRaft Biosciences | Thank You">
   <SiteHeader />
-  <section class="page-hero">
-    <div class="container">
-      <div class="eyebrow">Submission Received</div>
-      <h1 class="page-title">Thank you.</h1>
-      <p class="page-intro">Your message has been submitted. A follow-up can route through Netlify Forms and then on to the LifeRaft inbox workflow once deployment is connected.</p>
-      <div class="actions">
-        <a class="button primary" href="/">Back to Home</a>
-        <a class="button secondary" href="/partner/">Return to Partner Page</a>
-      </div>
+  <main class="container" style="padding:4rem 0 5rem;">
+    <div class="copy">
+      <div class="wf-hero-kicker">Submission Received</div>
+      <h1 style="font-family:'Cormorant Garamond',serif; color:var(--deep-navy); font-size:clamp(42px,6vw,64px); line-height:1; margin-bottom:1rem;">Thank you.</h1>
+      <p>Your message has been submitted. A member of the LifeRaft Biosciences team will follow up as appropriate.</p>
+      <div style="margin-top:1.5rem;"><a class="button primary" href={withBase('/')}>Back to Home</a></div>
     </div>
-  </section>
-  <FooterStrip />
+  </main>
+  <SiteFooter />
 </BaseLayout>
