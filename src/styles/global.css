@@ -237,16 +237,89 @@ a { text-decoration: none; }
 .wf-card .card-heading .card-icon { flex:0 0 auto; margin:0; line-height:1; }
 .wf-card .card-heading h4 { margin:0; line-height:1.15; }
 
-/* Established homepage hero — molecule on right, never allowed to overlap content. */
-.wf-hero { background:linear-gradient(135deg,var(--midnight) 0%,var(--deep-navy) 60%,var(--sapphire) 100%); color:#fff; padding:60px 48px; margin:-40px -40px 32px; position:relative; overflow:hidden; }
-.wf-hero:has(.wf-hero-art) { display:grid; grid-template-columns:minmax(0,1fr) 420px; grid-template-areas:"kicker image" "title image" "body image" "buttons image" "stats stats"; column-gap:3rem; align-items:start; }
-.wf-hero:has(.wf-hero-art) > .wf-hero-kicker { grid-area:kicker; }
-.wf-hero:has(.wf-hero-art) > h2 { grid-area:title; max-width:520px; }
-.wf-hero:has(.wf-hero-art) > p { grid-area:body; max-width:520px; }
-.wf-hero:has(.wf-hero-art) > .wf-hero-btns { grid-area:buttons; }
-.wf-hero:has(.wf-hero-art) > .wf-hero-stats { grid-area:stats; }
-.wf-hero-art { grid-area:image; width:100%; max-width:420px; height:450px; background-image:url('/Vepoloxamer/images/molecule-graphic.png'); background-size:cover; background-position:center; background-repeat:no-repeat; -webkit-mask-image:linear-gradient(to left,black 75%,transparent 100%),linear-gradient(to right,black 75%,transparent 100%),linear-gradient(to top,black 80%,transparent 100%),linear-gradient(to bottom,black 80%,transparent 100%); -webkit-mask-composite:destination-in; mask-image:linear-gradient(to left,black 75%,transparent 100%),linear-gradient(to right,black 75%,transparent 100%),linear-gradient(to top,black 80%,transparent 100%),linear-gradient(to bottom,black 80%,transparent 100%); mask-composite:intersect; }
-.wf-hero-stats .wf-stat { flex:1 1 0; min-width:140px; }
+/* ==========================================================
+   HOMEPAGE HERO
+   Molecule artwork on desktop / hidden on tablet + mobile
+   ========================================================== */
+
+.wf-hero {
+  background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 60%, var(--sapphire) 100%);
+  color: #fff;
+  padding: 60px 48px;
+  margin: -40px -40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wf-hero:has(.wf-hero-art) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  grid-template-areas:
+    "kicker image"
+    "title image"
+    "body image"
+    "buttons image"
+    "stats stats";
+  column-gap: 3rem;
+  row-gap: 0;
+  align-items: start;
+}
+
+.wf-hero:has(.wf-hero-art) > .wf-hero-kicker {
+  grid-area: kicker;
+}
+
+.wf-hero:has(.wf-hero-art) > h2 {
+  grid-area: title;
+  max-width: 620px;
+}
+
+.wf-hero:has(.wf-hero-art) > p {
+  grid-area: body;
+  max-width: 560px;
+}
+
+.wf-hero:has(.wf-hero-art) > .wf-hero-btns {
+  grid-area: buttons;
+}
+
+.wf-hero:has(.wf-hero-art) > .wf-hero-stats {
+  grid-area: stats;
+  width: 100%;
+}
+
+.wf-hero-art {
+  grid-area: image;
+  align-self: start;
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+  height: 450px;
+
+  background-image: url('/Vepoloxamer/images/molecule-graphic.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image:
+    linear-gradient(to left, black 75%, transparent 100%),
+    linear-gradient(to right, black 75%, transparent 100%),
+    linear-gradient(to top, black 80%, transparent 100%),
+    linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+
+  mask-image:
+    linear-gradient(to left, black 75%, transparent 100%),
+    linear-gradient(to right, black 75%, transparent 100%),
+    linear-gradient(to top, black 80%, transparent 100%),
+    linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.wf-hero-stats .wf-stat {
+  flex: 1 1 0;
+  min-width: 140px;
+}
 
 /* Contact keeps the legacy centered hero rather than homepage split behavior. */
 .wf-hero--centered { display:block !important; text-align:center; padding:80px 48px; }
@@ -368,5 +441,59 @@ a { text-decoration: none; }
 @media (max-width: 640px) {
   .home-hero h2 {
     font-size: 42px;
+  }
+}
+
+/* Homepage hero responsive overrides */
+@media (max-width: 960px) {
+  .wf-hero:has(.wf-hero-art) {
+    display: block;
+  }
+
+  .wf-hero-art {
+    display: none;
+  }
+
+  .wf-hero:has(.wf-hero-art) > h2,
+  .wf-hero:has(.wf-hero-art) > p,
+  .wf-hero:has(.wf-hero-art) > .wf-hero-btns,
+  .wf-hero:has(.wf-hero-art) > .wf-hero-stats {
+    width: 100%;
+    max-width: none;
+  }
+
+  .wf-hero:has(.wf-hero-art) > .wf-hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .wf-hero:has(.wf-hero-art) > .wf-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  .wf-hero:has(.wf-hero-art) {
+    padding: 36px 20px;
+  }
+
+  .wf-hero:has(.wf-hero-art) > .wf-hero-btns {
+    flex-direction: column;
+  }
+
+  .wf-hero:has(.wf-hero-art) > .wf-hero-btns .wf-btn-primary,
+  .wf-hero:has(.wf-hero-art) > .wf-hero-btns .wf-btn-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .wf-hero:has(.wf-hero-art) > .wf-hero-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
