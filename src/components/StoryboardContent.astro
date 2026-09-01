@@ -70,10 +70,10 @@ for (const [label, href] of Object.entries(linkMap)) {
 
 // Preserve the established homepage visual:
 // molecule artwork appears only on the homepage.
-if (page === 'home' && content.includes('<div class="wf-hero">')) {
+if (page === 'home') {
   content = content.replace(
-    '<div class="wf-hero">',
-    `<div class="wf-hero">
+    /<div class="([^"]*\bwf-hero\b[^"]*)">/,
+    `<div class="$1">
       <div class="wf-hero-art"></div>`
   );
 }
