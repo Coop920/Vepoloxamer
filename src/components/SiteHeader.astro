@@ -5,6 +5,8 @@ const withBase = (path: string) => {
   return `${base}${clean}`;
 };
 
+const currentPath = Astro.url.pathname;
+
 const links = [
   { href: 'science/', label: 'Science' },
   { href: 'pipeline/', label: 'Pipeline' },
@@ -32,7 +34,11 @@ const links = [
     </div>
 
     <nav id="primary-nav" class="nav header-nav" aria-label="Primary">
-      {links.map((link) => <a href={withBase(link.href)}>{link.label}</a>)}
+      {links.map((link) => {
+        const href = withBase(link.href);
+        const isActive = currentPath === href || currentPath.startsWith(href);
+        return <a href={href} class={isActive ? 'is-active' : undefined} aria-current={isActive ? 'page' : undefined}>{link.label}</a>;
+      })}
     </nav>
   </div>
 </header>
