@@ -3,6 +3,7 @@ interface Props {
   html: string;
   page?: string;
 }
+
 const { html, page } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -30,9 +31,11 @@ let content = html;
 content = content.replace(/href="\/([^"#][^"]*)"/g, (_m, path) => {
   return `href="${withBase('/' + path)}"`;
 });
+
 content = content.replace(/src="\/([^"]*)"/g, (_m, path) => {
   return `src="${withBase('/' + path)}"`;
 });
+
 content = content.replace(/action="\/([^"]*)"/g, (_m, path) => {
   return `action="${withBase('/' + path)}"`;
 });
@@ -53,14 +56,20 @@ for (const [label, href] of Object.entries(linkMap)) {
 
   // Preserve any additional classes/styles on storyboard publication links.
   const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
   const placeholderLink = new RegExp(
     `<a([^>]*\\bclass="[^"]*\\bpub-link\\b[^"]*"[^>]*)href="#"([^>]*)>${escapedLabel}<\\/a>`,
     'g'
   );
-  content = content.replace(placeholderLink, `<a$1href="${safeHref}"$2>${label}</a>`);
+
+  content = content.replace(
+    placeholderLink,
+    `<a$1href="${safeHref}"$2>${label}</a>`
+  );
 }
 
-// Preserve the established homepage visual: molecule art only on Home.
+// Preserve the established homepage visual:
+// molecule artwork appears only on the homepage.
 if (page === 'home' && content.includes('<div class="wf-hero">')) {
   content = content.replace(
     '<div class="wf-hero">',
