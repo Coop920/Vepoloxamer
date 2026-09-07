@@ -30,16 +30,15 @@ const links = [
         <span class="nav-toggle-line"></span>
       </button>
 
-      <a class="button primary header-cta" href="mailto:info@liferaftbiosciences.com">Investor Inquiries</a>
-    </div>
 
-    <nav id="primary-nav" class="nav header-nav" aria-label="Primary">
+      <nav id="primary-nav" class="nav header-nav" aria-label="Primary">
       {links.map((link) => {
         const href = withBase(link.href);
         const isActive = currentPath === href || currentPath.startsWith(href);
         return <a href={href} class={isActive ? 'is-active' : undefined} aria-current={isActive ? 'page' : undefined}>{link.label}</a>;
       })}
-    </nav>
+      </nav>
+    </div>
   </div>
 </header>
 
