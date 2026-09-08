@@ -74,7 +74,7 @@
   .wf-timeline-item { margin-bottom: 28px; position: relative; }
   .wf-timeline-item::before { content: ''; position: absolute; left: -39px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--cerulean); }
   .wf-timeline-item.highlight::before { background: var(--gold); width: 16px; height: 16px; left: -41px; }
-  .wf-timeline-item .year { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+  .wf-timeline-item .year { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: none; margin-bottom: 4px; }
   .wf-timeline-item h4 { font-size: 16px; font-weight: 500; color: var(--deep-navy); margin-bottom: 4px; }
   .wf-timeline-item p { font-size: 13px; color: var(--muted); }
   .outcome-good { font-size: 12px; background: #EAF5EA; border-left: 3px solid #4CAF50; padding: 6px 10px; margin-top: 6px; color: #2E7D32; }
