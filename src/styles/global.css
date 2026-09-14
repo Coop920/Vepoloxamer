@@ -296,7 +296,7 @@ a { text-decoration: none; }
   max-width: 420px;
   height: 450px;
 
-  background-image: url('/Vepoloxamer/images/molecule-graphic.png');
+  background-image: url('/Vepoloxamer/images/The-Patients.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -403,7 +403,7 @@ a { text-decoration: none; }
 .footer-logo-wrap { display:flex; align-items:flex-start; }
 .footer-logo { display:block; width:auto; max-width:220px; height:auto; }
 .science-flowchart { display:flex; justify-content:center; margin:32px auto 48px; }
-.science-flowchart img { display:block; width:min(100%, 760px); height:auto; }
+.science-flowchart img { display:block; width:100%; height:auto; }
 .lead-program-image-wrap { flex:0 0 280px; order:2; margin-left:auto; }
 .lead-program-image { display:block; width:280px; height:240px; object-fit:cover; object-position:center; border-radius:4px; }
 @media (max-width:960px) { .footer-logo { max-width:200px; } .lead-program-image-wrap { flex:1 1 100%; margin-left:0; } .lead-program-image { width:100%; max-width:420px; height:auto; margin:0 auto; } }
@@ -419,7 +419,7 @@ a { text-decoration: none; }
 .person-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center 18%;
   margin-bottom: 20px;
@@ -523,3 +523,30 @@ a { text-decoration: none; }
 @media (max-width:960px) {
   .clinical-window-grid { grid-template-columns:1fr; }
 }
+
+
+/* September 9 meeting feedback */
+.page-header { padding:.75rem 0; }
+.site-logo { max-width:170px; }
+@media (min-width:961px) {
+  .page-header { padding:.75rem 0; }
+  .header-nav { margin:0 0 0 2rem; gap:1.35rem; }
+  .header-nav a { font-size:.86rem; }
+}
+.card-icon { width:22px; height:22px; flex:0 0 22px; display:flex; align-items:center; justify-content:center; }
+.card-icon img { display:block; width:20px; height:20px; object-fit:contain; }
+.home-hero .wf-hero-art { background-position:center; }
+.tissue-cascade-intro { margin-top:30px; margin-bottom:12px; }
+.tissue-cascade-intro p { font-size:16px; color:var(--deep-navy); max-width:none; }
+.tissue-cascade-flow { width:100%; max-width:none; margin-top:12px; }
+.clinical-window-label { margin-top:22px; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); font-weight:700; }
+.pipeline-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.investor-sections .wf-block { border-top:1px solid #ddd7cd; padding-top:28px; }
+.legal-page { padding:3rem 0 5rem; }
+.legal-page .copy { max-width:900px; }
+.legal-page h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(42px,5vw,58px); color:var(--deep-navy); margin-bottom:18px; }
+.legal-page h2 { font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--deep-navy); margin:32px 0 10px; }
+.legal-page h3 { font-size:16px; color:var(--deep-navy); margin:20px 0 8px; }
+.legal-page p, .legal-page li { color:var(--muted); }
+.legal-page ul { padding-left:22px; margin:10px 0 18px; }
+@media (max-width:960px) { .site-logo { max-width:190px; } }

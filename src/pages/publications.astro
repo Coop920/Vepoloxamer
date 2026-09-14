@@ -17,8 +17,8 @@ import pageHtml from '../storyboard/publications.html?raw';
       const apply = () => {
         let shown = 0;
         rows.forEach((row) => {
-          const ok = (state.ind === 'all' || row.dataset.ind === state.ind) &&
-                     (state.mat === 'all' || row.dataset.mat === state.mat);
+          const matOk = state.mat === 'all' || (state.mat === 'other' ? row.dataset.mat !== 'vepo' : row.dataset.mat === state.mat);
+          const ok = (state.ind === 'all' || row.dataset.ind === state.ind) && matOk;
           row.style.display = ok ? '' : 'none';
           if (ok) shown++;
         });

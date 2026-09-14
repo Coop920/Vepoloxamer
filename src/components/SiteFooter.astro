@@ -18,21 +18,23 @@ const year = new Date().getFullYear();
       <nav class="footer-links two-col" aria-label="Footer">
         <a href={withBase('science/')}>Science</a>
         <a href={withBase('pipeline/')}>Pipeline</a>
-        <a href={withBase('foundation/')}>Foundation</a>
+        <a href={withBase('foundation/')}>Our Story</a>
+        <a href={withBase('ip-protection/')}>IP Protection</a>
         <a href={withBase('publications/')}>Publications</a>
         <a href={withBase('team/')}>Team</a>
+        <a href={withBase('investors/')}>For Investors</a>
         <a href={withBase('contact/')}>Contact</a>
       </nav>
     </div>
     <div class="footer-actions">
       <div class="footer-col-title">Connect</div>
-      <a class="button primary" href="mailto:info@liferaftbiosciences.com">Investor Inquiries</a>
+      <a class="button primary" href={withBase('contact/')}>Contact</a>
     </div>
   </div>
   <div class="container">
     <div class="footer-legal">
       © {year} Liferaft Biosciences. All Rights Reserved. |
-      <a href={withBase('privacy/')}>Privacy Policy</a><br />
+      <a href={withBase('privacy/')}>Privacy Policy</a> | <a href={withBase('terms/')}>Terms of Use</a><br />
       Property of LifeRaft Biosciences, Inc., and its affiliates, including Hirodika Biosciences, Inc.
     </div>
   </div>

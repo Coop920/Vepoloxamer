@@ -10,10 +10,11 @@ const currentPath = Astro.url.pathname;
 const links = [
   { href: 'science/', label: 'Science' },
   { href: 'pipeline/', label: 'Pipeline' },
-  { href: 'foundation/', label: 'Foundation' },
+  { href: 'foundation/', label: 'Our Story' },
+  { href: 'ip-protection/', label: 'IP Protection' },
   { href: 'publications/', label: 'Publications' },
   { href: 'team/', label: 'Team' },
-  { href: 'contact/', label: 'Contact' }
+  { href: 'investors/', label: 'For Investors' }
 ];
 ---
 
@@ -29,7 +30,6 @@ const links = [
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
       </button>
-
 
       <nav id="primary-nav" class="nav header-nav" aria-label="Primary">
       {links.map((link) => {
