@@ -550,3 +550,9 @@ a { text-decoration: none; }
 .legal-page p, .legal-page li { color:var(--muted); }
 .legal-page ul { padding-left:22px; margin:10px 0 18px; }
 @media (max-width:960px) { .site-logo { max-width:190px; } }
+
+
+.story-citations .pub-link {
+  color: #fff;
+  text-decoration: underline;
+}
