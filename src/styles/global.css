@@ -553,3 +553,20 @@ a { text-decoration: none; }
 
 /* Investor presentation CTA spacing */
 .investor-presentation-button { margin-top: 18px; }
+
+
+.pipeline-market-note {
+  margin-top: 16px;
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255,255,255,.72);
+}
+
+.person-linkedin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.person-linkedin a {
+  font-size: 12px;
+  font-weight: 600;
+}
