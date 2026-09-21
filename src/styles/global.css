@@ -649,3 +649,10 @@ a { text-decoration: none; }
   .story-timeline { margin-left:18px; margin-right:18px; }
 }
 
+
+/* v23 Revision 2 — reduce sticky header height */
+@media (min-width: 961px) {
+  .page-header { padding: .35rem 0; }
+  .site-logo { max-width: 145px; }
+  .header-nav { margin-left: 1.75rem; }
+}
