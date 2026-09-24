@@ -657,3 +657,19 @@ a { text-decoration: none; }
   .site-logo { max-width: 145px; }
   .header-nav { margin-left: 1.75rem; }
 }
+
+/* Page-level regulatory / forward-looking disclaimers */
+.page-disclaimers {
+  margin-top: 42px;
+  padding-top: 18px;
+  border-top: 1px solid #ddd7cd;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+.page-disclaimers p {
+  margin: 0 0 10px;
+  font-size: inherit;
+  color: inherit;
+}
+.page-disclaimers p:last-child { margin-bottom: 0; }
