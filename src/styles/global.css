@@ -592,7 +592,7 @@ a { text-decoration: none; }
 .home-publications { display:grid; grid-template-columns:minmax(0,2fr) minmax(220px,1fr); gap:32px; align-items:start; }
 .home-publications-copy { grid-column:1; }
 .home-publication-stat-block { grid-column:2; grid-row:1 / span 2; display:flex; flex-direction:column; gap:14px; margin:0 !important; }
-.home-publication-stat-block .stat-line { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.home-publication-stat-block .stat-line { display:flex; align-items:baseline; gap:14px; /*flex-wrap:wrap;*/ }
 .home-publication-stat-block .desc { font-size:14px; }
 .home-publications-link { grid-column:1; font-size:14px !important; align-self:start; }
 
