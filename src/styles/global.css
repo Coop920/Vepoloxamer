@@ -55,7 +55,7 @@
   .wf-card { background: var(--warm-white); border: 1px solid #e0ddd6; padding: 24px; border-radius: 2px; }
   .wf-card.featured { background: #EDF4FB; border: 1px solid var(--cerulean); }
   .wf-card.lead-program { background: linear-gradient(135deg, #F8F4E8 0%, #FAF7EE 100%); border: 1px solid var(--gold); position: relative; }
-  .wf-card.lead-program::before { content: 'LEAD PROGRAM'; position: absolute; top: -10px; left: 16px; background: var(--gold); color: white; font-size: 9px; letter-spacing: 2px; padding: 3px 10px; font-weight: 600; }
+  /*.wf-card.lead-program::before { content: 'LEAD PROGRAM'; position: absolute; top: -10px; left: 16px; background: var(--gold); color: white; font-size: 9px; letter-spacing: 2px; padding: 3px 10px; font-weight: 600; }*/
   .wf-card .card-icon { font-size: 24px; margin-bottom: 12px; }
   .wf-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--deep-navy); margin-bottom: 6px; font-weight: 500; }
   .wf-card p { font-size: 13px; color: var(--muted); font-weight: 300; }
